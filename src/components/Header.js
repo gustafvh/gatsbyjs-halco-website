@@ -1,15 +1,17 @@
-import React from "react"
+import React, {useState} from "react"
 import styled from "@emotion/styled"
+import { css } from '@emotion/core'
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import TitlePane from "./TitlePane";
+import MouseScrollIcon from "./specials/MouseScrollIcon";
+
 
 const HeaderContainer = styled.div`
   font-family: 'Avenir';
   color: #333;
   display: flex;
   flex-direction: column;
-  background-color: #F8CE69;
   height: 100vh;
   justify-content: space-between;
   
@@ -22,6 +24,7 @@ const Menu = styled.div`
   float: right;
   color: #444444;
   display: flex;
+  margin: 20px 40px;
   flex-direction: row;
   justify-content: space-between;
   
@@ -53,7 +56,6 @@ const MenuOptionStyle = styled.div`
   }
 `
 
-
 const MenuOption = props => (
     <MenuOptionStyle>
         <a href="#">{props.option}</a>
@@ -62,6 +64,8 @@ const MenuOption = props => (
 
 
 export default function Header() {
+
+    const [bgcolor, setBgcolor] = useState('#F8CE69');
 
     const data = useStaticQuery(graphql`
         query {
@@ -74,7 +78,7 @@ export default function Header() {
             }
         }
     `)
-    return (<HeaderContainer>
+    return (<HeaderContainer style={{backgroundColor: bgcolor}}>
         <Menu>
             <Logo>
                 <Img
@@ -89,9 +93,7 @@ export default function Header() {
                     <MenuOption option="Project"/>
             </MenuOptions>
         </Menu>
-        <TitlePane/>
-        <p> Scroll down icon </p>
-
-
+            <TitlePane bgcolor={bgcolor} setBgcolor={setBgcolor}/>
+        <MouseScrollIcon/>
     </HeaderContainer>)}
 

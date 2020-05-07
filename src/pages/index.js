@@ -17,5 +17,4 @@ const GlobalStyles = styled.div`
 export default function Home() {
     return (<GlobalStyles>
             <Header/>
-
     </GlobalStyles>)}
