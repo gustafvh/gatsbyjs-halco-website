@@ -8,7 +8,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: row;
     padding: 0px 20px;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
  
     
@@ -31,8 +31,6 @@ const Container = styled.div`
 const PaneContainer = styled.div`
     display: flex;
     flex-direction:  column;
-    max-height: 75vh;
-    overflow-y: auto;
 `
 
 const RowContainer = styled.div`
@@ -56,7 +54,7 @@ const TitleText = styled.div`
 `
 
 
-export default function TitlePane(props) {
+export default function Panes(props) {
     const data = useStaticQuery(graphql`
         query {
             animoji: file(relativePath: { eq: "images/animoji.png" }) {childImageSharp {fixed(width: 230, height: 300) {...GatsbyImageSharpFixed}}}
@@ -125,7 +123,8 @@ export default function TitlePane(props) {
         </TitleText>
     </PaneContainer>)
 
-    const RenderThirdPane = props => ( <PaneContainer>
+    const RenderThirdPane = props => (
+        <PaneContainer>
         <ImageContainer>
             <Img
                 fixed={data.reused.childImageSharp.fixed}
@@ -139,17 +138,8 @@ export default function TitlePane(props) {
         </TitleText>
     </PaneContainer>)
 
-    const paneSelector = [<RenderSecondPane/>, <RenderFirstPane/>, <RenderThirdPane/>,]
-
-    const bgColorSelector = ['#F8CE69', '#CFA0DC', '#88CF8F', '#FEADBB',]
-
-    const changePane = (numberToAdd) => {
-        setPane(pane+numberToAdd)
-        props.setBgcolor(bgColorSelector[Math.abs(pane % paneSelector.length)])
-    }
+    const renderPanes = [<RenderSecondPane/>, <RenderFirstPane/>, <RenderThirdPane/>,]
 
     return (<Container>
-        <button onClick={() => changePane(-1) }><ArrowLeft/></button>
-        {paneSelector[Math.abs(pane % paneSelector.length)]}
-        <button onClick={() => changePane(1)}><ArrowRight/></button>
+        {renderPanes[Math.abs(props.paneSelector % renderPanes.length)]}
         </Container>)}

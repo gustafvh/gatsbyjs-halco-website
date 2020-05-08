@@ -5,14 +5,6 @@ import Img from "gatsby-image"
 import { jsx, css } from '@emotion/core'
 
 const Container = styled.div`
-  font-family: 'Avenir';
-  color: #333;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-`
-
-const MenuOptions = styled.div`
   color: #444444;
   display: flex;
   flex-direction: row;
@@ -47,10 +39,11 @@ const MenuOption = props => (
 
 export default function Footer() {
 
-    return (<MenuOptions>
-                <MenuOption option="Profile"/>
-                <MenuOption option="Clients"/>
-                <MenuOption option="Work"/>
-                <MenuOption option="Project"/>
-            </MenuOptions>)}
+    return (
+        <Container>
+            <MenuOption option="Profile"/>
+            <MenuOption option="Clients"/>
+            <MenuOption option="Work"/>
+            <MenuOption option="Project"/>
+        </Container>)}
 
