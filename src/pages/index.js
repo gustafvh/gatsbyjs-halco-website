@@ -12,6 +12,7 @@ import TitlePane from "../components/TitlePane"
 
 const GlobalStyles = styled.div`
   font-family: 'Avenir'
+  
 `
 
 export default function Home() {

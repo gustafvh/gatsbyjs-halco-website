@@ -4,7 +4,6 @@ import { css } from '@emotion/core'
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import TitlePane from "./TitlePane";
-import MouseScrollIcon from "./specials/MouseScrollIcon";
 
 
 const HeaderContainer = styled.div`
@@ -14,28 +13,23 @@ const HeaderContainer = styled.div`
   flex-direction: column;
   height: 100vh;
   justify-content: space-between;
+  transition: all 1s ease;
   
 `
 const Logo = styled.div`
-  float: left;
-  padding: 20px;
-`
-const Menu = styled.div`
-  float: right;
-  color: #444444;
   display: flex;
   margin: 20px 40px;
   flex-direction: row;
-  justify-content: space-between;
-  
+  padding: 20px;
+  justify-content: center;
 `
 
 const MenuOptions = styled.div`
-  float: right;
   color: #444444;
   display: flex;
   flex-direction: row;
-  
+  justify-content: center;
+  height: 100px;
 `
 const MenuOptionStyle = styled.div`
   font-family: 'Avenir';
@@ -43,16 +37,16 @@ const MenuOptionStyle = styled.div`
   
   a {
     color: #333;
+    font-weight: 600;
     text-decoration: none;
     display: inline-block;
-    transition: all 0.2s ease;
+    transition: all 0.1s ease;
   }
   
   a:hover {
-    font-weight: 600;
     color: #3399FF;
-    transform: translateY(-3px);
-    transition: all 0.2s ease;
+    transform: translateY(-3px) scale(1.2);
+    transition: all 0.1s ease;
   }
 `
 
@@ -69,31 +63,23 @@ export default function Header() {
 
     const data = useStaticQuery(graphql`
         query {
-            file(relativePath: { eq: "images/logo.png" }) {
-                childImageSharp {
-                    fixed(width: 150, height: 50) {
-                        ...GatsbyImageSharpFixed
-                    }
-                }
-            }
+            logo: file(relativePath: { eq: "images/logo.png" }) {childImageSharp {fixed(width: 150, height: 50) {...GatsbyImageSharpFixed}}}
+            benify: file(relativePath: { eq: "images/showcase/showcase_benify.png" }) {childImageSharp {fixed(width: 150, height: 50) {...GatsbyImageSharpFixed}}}
         }
     `)
     return (<HeaderContainer style={{backgroundColor: bgcolor}}>
-        <Menu>
             <Logo>
                 <Img
-                    fixed={data.file.childImageSharp.fixed}
+                    fixed={data.logo.childImageSharp.fixed}
                     alt="Logo"
                 />
             </Logo>
-            <MenuOptions>
-                    <MenuOption option="Profile"/>
-                    <MenuOption option="Clients"/>
-                    <MenuOption option="Work"/>
-                    <MenuOption option="Project"/>
-            </MenuOptions>
-        </Menu>
             <TitlePane bgcolor={bgcolor} setBgcolor={setBgcolor}/>
-        <MouseScrollIcon/>
+        <MenuOptions>
+            <MenuOption option="Profile"/>
+            <MenuOption option="Clients"/>
+            <MenuOption option="Work"/>
+            <MenuOption option="Project"/>
+        </MenuOptions>
     </HeaderContainer>)}
 
