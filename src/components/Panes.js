@@ -63,8 +63,6 @@ export default function Panes(props) {
         }
     `)
 
-    const [pane, setPane] = useState(1);
-
     const RenderFirstPane = props => (
         <PaneContainer>
             <RowContainer>

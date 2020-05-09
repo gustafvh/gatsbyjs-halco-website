@@ -2,13 +2,13 @@ import React, {useState} from "react"
 
 import "normalize.css"
 import styled from "@emotion/styled"
-import { css } from "@emotion/core"
 
 import Footer from "../components/Footer"
 import Panes from "../components/Panes"
 import {graphql, useStaticQuery} from "gatsby";
 import Img from "gatsby-image";
 import {ArrowLeft, ArrowRight} from "../components/specials/svgs";
+import {hexToRGBA} from "../components/specials/supportFunctions";
 
 const GlobalStyles = styled.div`
   font-family: 'Avenir';
@@ -40,11 +40,13 @@ const PageContainer = styled.div`
     button:focus { outline: none; }
 `
 
-const Logo = styled.div`
+const Logo = styled.div(props =>`
   justify-content: center;
   padding: 40px;
-  text-align: center;
-`
+  text-align: center;  
+  background: linear-gradient(to bottom, ${props.bgColorFrom}, 50%, ${props.bgColorTo});
+  transition: all 1s ease;
+`)
 
 const PaneContainer = styled.div`
     max-height: 90vh;
@@ -73,11 +75,12 @@ export default function Home() {
     return (
         <GlobalStyles>
             <PageContainer style={{backgroundColor: bgcolor}}>
-                <Logo><Img fixed={data.logo.childImageSharp.fixed} alt="Logo"/>
+                <Logo bgColorFrom={hexToRGBA(bgcolor, 100)} bgColorTo={hexToRGBA(bgcolor, 0)}>
+                    <Img fixed={data.logo.childImageSharp.fixed} alt="Logo"/>
                 </Logo>
                 <button style={{left: "40px"}} onClick={() => changePane(-1) }><ArrowLeft/></button>
                     <PaneContainer><Panes paneSelector={paneSelector}/></PaneContainer>
                 <button style={{right: "40px"}} onClick={() => changePane(1)}><ArrowRight/></button>
-                <Footer/>
+                <Footer bgcolor={bgcolor}/>
             </PageContainer>
         </GlobalStyles>)}

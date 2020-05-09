@@ -1,18 +1,21 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
-import { jsx, css } from '@emotion/core'
+import { hexToRGBA } from "./specials/supportFunctions.js"
 
-const Container = styled.div`
-  color: #444444;
+const Container = styled.div(props =>`
+  position: fixed;
+  bottom: 0px;
+  width: 100vw;
   display: flex;
   flex-direction: row;
   justify-content: center;
-`
+  background: linear-gradient(to bottom, ${props.bgColorFrom}, 20%, ${props.bgColorTo});
+  transition: all 1s ease;
+`)
+
+
 const MenuOptionStyle = styled.div`
-  font-family: 'Avenir';
-  padding: 40px 20px;
+  padding: 80px 40px;
   
   a {
     color: #333;
@@ -35,12 +38,9 @@ const MenuOption = props => (
     </MenuOptionStyle>
 )
 
-
-
-export default function Footer() {
-
+export default function Footer(props) {
     return (
-        <Container>
+        <Container bgColorFrom={hexToRGBA(props.bgcolor, 0)} bgColorTo={hexToRGBA(props.bgcolor, 100)}>
             <MenuOption option="Profile"/>
             <MenuOption option="Clients"/>
             <MenuOption option="Work"/>
