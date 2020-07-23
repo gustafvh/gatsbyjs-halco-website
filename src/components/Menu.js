@@ -1,25 +1,20 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { hexToRGBA } from "./specials/supportFunctions.js"
 
 const Container = styled.div(props =>`
-  position: fixed;
-  bottom: 0px;
-  width: 100vw;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  background: linear-gradient(to bottom, ${props.bgColorFrom}, 20%, ${props.bgColorTo});
+  align-items: center;
   transition: all 1s ease;
 `)
 
 
 const MenuOptionStyle = styled.div`
-  padding: 80px 40px;
+  padding: 0px 30px;
   
   a {
     color: #333;
-    font-weight: 600;
+    letter-spacing: -0.05em;
     text-decoration: none;
     display: inline-block;
     transition: all 0.1s ease;
@@ -27,7 +22,7 @@ const MenuOptionStyle = styled.div`
   
   a:hover {
     color: #3399FF;
-    transform: translateY(-3px) scale(1.2);
+    transform: translateY(-3px);
     transition: all 0.1s ease;
   }
 `
@@ -38,9 +33,9 @@ const MenuOption = props => (
     </MenuOptionStyle>
 )
 
-export default function Footer(props) {
+export default function Menu(props) {
     return (
-        <Container bgColorFrom={hexToRGBA(props.bgcolor, 0)} bgColorTo={hexToRGBA(props.bgcolor, 100)}>
+        <Container>
             <MenuOption option="Profile"/>
             <MenuOption option="Clients"/>
             <MenuOption option="Work"/>
