@@ -3,6 +3,7 @@ import Img from "gatsby-image";
 import Menu from "./Menu";
 import styled from "@emotion/styled";
 import {graphql, useStaticQuery} from "gatsby";
+import Fade from "react-reveal/Fade";
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -38,16 +39,21 @@ export default function Header() {
 
     const data = useStaticQuery(graphql`
         query {
-            logo: file(relativePath: { eq: "images/logo.png" }) {childImageSharp {fixed(width: 150, height: 50) {...GatsbyImageSharpFixed}}}
+            logo: file(relativePath: { eq: "images/logo.png" }) {childImageSharp {fixed(width: 150, height: 50) {...GatsbyImageSharpFixed_tracedSVG}}}
         }
     `)
 
     return (
         <HeaderContainer>
-            <Logo>
-                <Img fixed={data.logo.childImageSharp.fixed} alt="Logo"/>
-            </Logo>
-            <Menu/>
+            <Fade left>
+                <Logo>
+                    <Img fixed={data.logo.childImageSharp.fixed} alt="Logo"/>
+                </Logo>
+            </Fade>
+            <Fade right>
+                <Menu/>
+            </Fade>
+
         </HeaderContainer>
 
     )}

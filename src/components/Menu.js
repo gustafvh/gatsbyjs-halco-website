@@ -14,7 +14,6 @@ const MenuOptionStyle = styled.div`
   
   a {
     color: #333;
-    letter-spacing: -0.05em;
     text-decoration: none;
     display: inline-block;
     transition: all 0.1s ease;
@@ -36,9 +35,9 @@ const MenuOption = props => (
 export default function Menu(props) {
     return (
         <Container>
-            <MenuOption option="Profile"/>
-            <MenuOption option="Clients"/>
-            <MenuOption option="Work"/>
-            <MenuOption option="Project"/>
+                <MenuOption option="Home"/>
+                <MenuOption option="Work"/>
+                <MenuOption option="Roles"/>
+                <MenuOption option="Articles"/>
         </Container>)}
 

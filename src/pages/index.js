@@ -5,16 +5,24 @@ import styled from "@emotion/styled"
 
 import Header from "../components/Header"
 import WelcomeSection from "../components/WelcomeSection"
+import Work from "../components/Work"
 
 const GlobalStyles = styled.div`
   font-family: 'Open Sans';
-  color: #333;
+  color: #3E3E3E;
+  letter-spacing: -0.05em;
 `
 
 export default function Home() {
 
+    const [currentSection, setSection] = useState("Home");
+
+
     return (
         <GlobalStyles>
-            <Header/>
+            <Header currentSection={currentSection}/>
             <WelcomeSection/>
-        </GlobalStyles>)}
+            <Work/>
+            END
+        </GlobalStyles>
+)}
