@@ -1,11 +1,27 @@
 import React from "react"
 import styled from "@emotion/styled"
 
-const Container = styled.div(props =>`
+const DesktopContainer = styled.div(props =>`
   display: flex;
   flex-direction: row;
+  overflow: hidden;
   align-items: center;
   transition: all 1s ease;
+  
+  @media screen and (max-width:800px) {
+    display: none;
+    }
+`)
+
+const MobileContainer = styled.div(props =>`
+  justify-content: center;
+  text-align: right;
+  background-color: #F5F5F5;
+  transition: all 1s ease;
+  a {
+  margin: 20px;
+  }
+
 `)
 
 
@@ -17,27 +33,46 @@ const MenuOptionStyle = styled.div`
     text-decoration: none;
     display: inline-block;
     transition: all 0.1s ease;
-  }
-  
-  a:hover {
+    
+    &:hover {
     color: #3399FF;
     transform: translateY(-3px);
-    transition: all 0.1s ease;
+    transition: all 0.1s ease;   
+    
+    }
+    
+    
   }
+  
 `
 
 const MenuOption = props => (
     <MenuOptionStyle>
-        <a href="#">{props.option}</a>
+        <a href={props.link}>{props.option}</a>
     </MenuOptionStyle>
 )
 
-export default function Menu(props) {
+const Menu = () => ( <>
+    <MenuOption option="Home" link="#home"/>
+    <MenuOption option="Work" link="#work"/>
+    <MenuOption option="Roles" link="#roles"/>
+    <MenuOption option="Articles" link="#articles"/>
+    </>
+)
+
+
+export function MobileMenu() {
     return (
-        <Container>
-                <MenuOption option="Home"/>
-                <MenuOption option="Work"/>
-                <MenuOption option="Roles"/>
-                <MenuOption option="Articles"/>
-        </Container>)}
+        <MobileContainer>
+            <Menu/>
+        </MobileContainer>)}
+
+
+
+
+export function DesktopMenu() {
+    return (
+        <DesktopContainer>
+            <Menu/>
+        </DesktopContainer>)}
 

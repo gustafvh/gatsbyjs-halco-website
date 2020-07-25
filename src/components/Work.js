@@ -34,14 +34,14 @@ const CardBackground = styled.div(props =>`
     transition: all 0.2s ease;
     
     a {
-        transform: translateX(-4px);
+        transform: translateX(-10px);
         transition: all 0.2s ease;
     }
     
     .projectImage {
     
     transform: scale(1.2);
-    transition: transform 6s;
+    transition: transform 5s;
     }
     
     }
@@ -66,23 +66,23 @@ const Text = styled.div(props =>`
     
     h4 {
     font-weight: bold;
-    font-size: 14px;
+    font-size: 0.9em;
     }
     
     h2 {
     font-family: Gloria Hallelujah;
-    font-size: 26px;
+    font-size: 1.6em;
     margin: 10px 0px;
     }
     
     p {
-    font-size: 14px;
+    font-size: 0.9em;
     line-height: 19px;
     }
     
     h3 {
     font-weight: bold;
-    font-size: 14px;
+    font-size: 0.9em;
     margin: 10px;
     }
     
@@ -93,7 +93,7 @@ const ViewProject = styled.div(props =>`
     margin: 20px 0px;
     a {
         font-weight: bold;
-        font-size: 16px;
+        font-size: 1em;
         color: #3399FF;
         text-decoration: none;
         display: inline-block;

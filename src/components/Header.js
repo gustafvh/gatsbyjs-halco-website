@@ -1,14 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
 import Img from "gatsby-image";
-import Menu from "./Menu";
+import {DesktopMenu, MobileMenu} from "./Menu";
 import styled from "@emotion/styled";
 import {graphql, useStaticQuery} from "gatsby";
 import Fade from "react-reveal/Fade";
+import {GrMenu, GrClose} from "react-icons/gr";
+
+
+const Container = styled.div`
+
+`
 
 const HeaderContainer = styled.div`
   display: flex;
   padding: 40px;
   flex-direction: row;
+  flex-wrap: no-wrap;
+  align-items: center;
   justify-content: space-between;
   transition: all 1s ease;
   
@@ -35,7 +43,19 @@ const Logo = styled.div(props =>`
   transition: all 1s ease;
 `)
 
-export default function Header() {
+
+const MenuButton = styled.div(props =>`
+
+    display: none;
+@media screen and (max-width:800px) {
+    
+    display: flex;
+    
+    }
+  
+`)
+
+export default function Header(props) {
 
     const data = useStaticQuery(graphql`
         query {
@@ -43,18 +63,35 @@ export default function Header() {
         }
     `)
 
-    return (
-        <HeaderContainer>
-            <Fade left>
-                <Logo>
-                    <Img fixed={data.logo.childImageSharp.fixed} alt="Logo"/>
-                </Logo>
-            </Fade>
-            <Fade right>
-                <Menu/>
-            </Fade>
+    const [menuOpen, toggleMenuOpen] = useState(true);
 
-        </HeaderContainer>
+
+    return (<Container>
+            <HeaderContainer>
+                <Fade left>
+                    <Logo>
+                        {props.currentSection === "Home" ? (<Img fixed={data.logo.childImageSharp.fixed} alt="Logo"/>) : <p> Hello </p> }
+                    </Logo>
+                </Fade>
+                <Fade right>
+                    {menuOpen ? ( <>
+                        <DesktopMenu/>
+                        <MenuButton>
+                            <a onClick={() => toggleMenuOpen(false) } href="#"><GrMenu color="#3E3E3E" size="1.5em"/></a>
+                        </MenuButton>
+                        </>) : ( <>
+                            <MenuButton>
+                                <a onClick={() => toggleMenuOpen(true) } href="#"><GrClose color="#3E3E3E" size="1.5em"/></a>
+                            </MenuButton>
+                        </>
+                    )}
+
+                </Fade>
+
+            </HeaderContainer>
+            {!menuOpen && <MobileMenu/>}
+
+        </Container>
 
     )}
 

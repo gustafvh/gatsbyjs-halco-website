@@ -17,7 +17,6 @@ export default function Home() {
 
     const [currentSection, setSection] = useState("Home");
 
-
     return (
         <GlobalStyles>
             <Header currentSection={currentSection}/>
