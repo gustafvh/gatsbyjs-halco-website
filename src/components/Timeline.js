@@ -29,7 +29,7 @@ h2 {
 h4 {
 font-family: 'Gloria Hallelujah';
 font-size: 1.1em;
-margin: 0px;
+margin: 10px;
 
 }
  
@@ -50,6 +50,7 @@ overflow: auto;
     background-color: #F5F5F5;
     border-radius: 30px;
     margin: 25%;
+    
 }
 
 &::-webkit-scrollbar
@@ -65,7 +66,6 @@ overflow: auto;
     background-color: #3E3E3E;
     opacity: 1;
     border-radius: 30px;
-    max-width: 100px;
 }
 `
 )
@@ -80,12 +80,22 @@ box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 30px;
 padding: 40px;
 margin: 40px;
+margin-top: 20px;
 min-width: 500px;
+
+@media screen and (max-width:800px) {
+    flex-direction: column;
+    margin: 20px;
+    padding: 40px;
+    min-width: 60vw;
+    justify-content: unset;
+    }
 `
 )
 
 const LogoAndText = styled.div(
   props => `
+  min-width: 120px;
 h1  {
 font-size: 1.5em;
 font-family: 'Gloria Hallelujah';
@@ -95,6 +105,10 @@ h3 {
 color: #C4C4C4;
 font-size: 0.8em;
 
+}
+
+img {
+  min-height: 20px;
 }
 `
 )
@@ -107,13 +121,22 @@ const InfoText = styled.div(
 const ReadMore = styled.div(
   props => `
     
-    margin-top: 40px;
+    margin-top: 10px;
     
     a {
     color: #3399FF;
     font-size: 1em;
+    font-weight: 700;
     text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s ease;
+
     
+    &:hover {
+      display: inline-block;
+      transform: translateX(-3px);
+      transition: all 0.2s ease;
+    }
     }
 
 
@@ -124,6 +147,8 @@ const Headline = styled.div(
   props => `
     font-weight: 700;
     color: #3399FF;
+    p {
+    margin-top: 0px;
 `
 )
 
@@ -133,6 +158,10 @@ const VerticalSeperator = styled.span(
     border-radius: 20px;
     height: 100%;
     margin: 0px 20px;
+    
+    @media screen and (max-width:800px) {
+    display: none;
+    }
 `
 )
 
@@ -152,7 +181,7 @@ const SkillBackground = styled.div(
   props => `
     background: #F5F5F5;
     border-radius: 20px;
-    margin: 20px 10px;
+    margin: 10px;
    
    p {
     font-size:  1em;
@@ -166,6 +195,7 @@ const Skills = styled.div(
   props => `
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     
     
@@ -195,7 +225,9 @@ const CompanyCard = props => (
       <h1>{props.role} </h1>
       <h3>{props.dates} </h3>
       <ReadMore>
-        <a href={props.link}>Read more </a>
+        <a href={props.link}>
+          Read more <ArrowRight color="#3399FF" />
+        </a>
       </ReadMore>
     </LogoAndText>
     <VerticalSeperator></VerticalSeperator>
@@ -252,8 +284,8 @@ export default function Timeline(props) {
         relativePath: { eq: "images/company-logos/benify-logo.png" }
       ) {
         childImageSharp {
-          fixed(height: 20) {
-            ...GatsbyImageSharpFixed_tracedSVG
+          fixed(height: 30) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
       }
@@ -261,8 +293,8 @@ export default function Timeline(props) {
         relativePath: { eq: "images/company-logos/reused-logo.png" }
       ) {
         childImageSharp {
-          fixed(width: 50) {
-            ...GatsbyImageSharpFixed_tracedSVG
+          fixed(height: 30) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
       }
@@ -270,8 +302,8 @@ export default function Timeline(props) {
         relativePath: { eq: "images/company-logos/asthmatuner-logo.png" }
       ) {
         childImageSharp {
-          fixed(height: 20) {
-            ...GatsbyImageSharpFixed_tracedSVG
+          fixed(height: 30) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
       }
@@ -280,7 +312,7 @@ export default function Timeline(props) {
       ) {
         childImageSharp {
           fixed(height: 30) {
-            ...GatsbyImageSharpFixed_tracedSVG
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
       }
@@ -288,8 +320,8 @@ export default function Timeline(props) {
         relativePath: { eq: "images/company-logos/hedvig-logo.png" }
       ) {
         childImageSharp {
-          fixed(height: 25) {
-            ...GatsbyImageSharpFixed_tracedSVG
+          fixed(height: 30) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
       }
@@ -314,7 +346,7 @@ export default function Timeline(props) {
             headline="HR-tech company which creates cloud-based benefits portals for employers."
             pointOne="Providing development strategies based on data from 1+ million users globally."
             pointTwo="Developed and lead supplier-agreement system within 7 countries that made internal processes 2 400 times faster, down-time free, and removed on-boarding requirement for newly hires."
-            link="https.//benify.se"
+            link="https://benify.se"
           />
           <CompanyCard
             role="Web Developer"
@@ -323,7 +355,7 @@ export default function Timeline(props) {
             headline="Sustainable Consumerism company that sells reusable fabric bags that are currently sold online as well as at Systembolaget, ICA and Lidl."
             pointOne="Built HTML/CSS/WP website "
             pointTwo="Built B2C webshop in WooCommerce"
-            link="https.//reusedremade.com"
+            link="https://reusedremade.com"
           />
           <CompanyCard
             role="Software Developer"
@@ -332,7 +364,7 @@ export default function Timeline(props) {
             headline="Medtech company that develops self-management systems and home diagnostics for respiratory diseases."
             pointOne="Develop doctor-patient interaction platform in Angular."
             pointTwo="Built two HTML/CSS/WP websites"
-            link="https.//asthmatuner.se"
+            link="https://asthmatuner.se"
           />
           <CompanyCard
             role="Business Internship"

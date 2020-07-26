@@ -7,6 +7,7 @@ import Header from "../components/Header"
 import WelcomeSection from "../components/WelcomeSection"
 import Projects from "../components/Projects"
 import Timeline from "../components/Timeline"
+import HeadData from "../components/HeadData"
 
 const GlobalStyles = styled.div`
   font-family: "Open Sans";
@@ -20,6 +21,7 @@ export default function Home() {
 
   return (
     <GlobalStyles>
+      <HeadData />
       <Header currentSection={currentSection} />
       <WelcomeSection />
       <Timeline />

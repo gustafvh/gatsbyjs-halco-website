@@ -63,7 +63,7 @@ export default function Header(props) {
       logo: file(relativePath: { eq: "images/logo.png" }) {
         childImageSharp {
           fixed(width: 150, height: 50) {
-            ...GatsbyImageSharpFixed_tracedSVG
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
       }
@@ -75,35 +75,35 @@ export default function Header(props) {
   return (
     <Container>
       <HeaderContainer>
-        <Fade left>
-          <Logo>
-            {props.currentSection === "Home" ? (
-              <Img fixed={data.logo.childImageSharp.fixed} alt="Logo" />
-            ) : (
-              <p> Hello </p>
-            )}
-          </Logo>
-        </Fade>
-        <Fade right>
-          {menuOpen ? (
-            <>
-              <DesktopMenu />
-              <MenuButton>
-                <a id="Home" onClick={() => toggleMenuOpen(false)} href="#">
-                  <GrMenu color="#3E3E3E" size="1.5em" />
-                </a>
-              </MenuButton>
-            </>
+        {/*<Fade left>*/}
+        <Logo>
+          {props.currentSection === "Home" ? (
+            <Img fixed={data.logo.childImageSharp.fixed} alt="Logo" />
           ) : (
-            <>
-              <MenuButton>
-                <a id="Home" onClick={() => toggleMenuOpen(true)} href="#">
-                  <GrClose color="#3E3E3E" size="1.5em" />
-                </a>
-              </MenuButton>
-            </>
+            <p> Hello </p>
           )}
-        </Fade>
+        </Logo>
+        {/*</Fade>*/}
+        {/*<Fade right>*/}
+        {menuOpen ? (
+          <>
+            <DesktopMenu />
+            <MenuButton>
+              <a id="Home" onClick={() => toggleMenuOpen(false)} href="#">
+                <GrMenu color="#3E3E3E" size="1.5em" />
+              </a>
+            </MenuButton>
+          </>
+        ) : (
+          <>
+            <MenuButton>
+              <a id="Home" onClick={() => toggleMenuOpen(true)} href="#">
+                <GrClose color="#3E3E3E" size="1.5em" />
+              </a>
+            </MenuButton>
+          </>
+        )}
+        {/*</Fade>*/}
       </HeaderContainer>
       {!menuOpen && <MobileMenu />}
     </Container>

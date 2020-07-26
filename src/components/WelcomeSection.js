@@ -89,7 +89,7 @@ export default function WelcomeSection() {
       gustaf: file(relativePath: { eq: "images/gustaf-blue.png" }) {
         childImageSharp {
           fixed(width: 360, height: 418, quality: 95) {
-            ...GatsbyImageSharpFixed_tracedSVG
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
       }
@@ -100,41 +100,41 @@ export default function WelcomeSection() {
     <Container>
       <ImageAndText>
         <IntroText>
-          <Fade left>
-            <h1>I'm Gustaf Halvardsson.</h1>
-            <h2>Computer Science Student @KTH.</h2>
-            <p>
-              Best described by my curiosity for new areas and technologies
-              which is why I’ve done everything from Machine Learning to
-              Animations with mainly technology start-ups as clients.
-            </p>
-            <SocialMediaicons>
-              <a href="https://www.linkedin.com/in/gustafhalvardsson/">
-                <FaLinkedin color="#3E3E3E" size="1.5em" />
-              </a>
-              <a href="https://github.com/gustafvh">
-                <FaGithub color="#3E3E3E" size="1.5em" />
-              </a>
-              <a href="https://medium.com/@gustaf.halvardsson">
-                <FaMedium color="#3E3E3E" size="1.5em" />
-              </a>
-              <a href="https://dribbble.com/gustafvh">
-                <FaDribbble color="#3E3E3E" size="1.5em" />
-              </a>
-            </SocialMediaicons>
-          </Fade>
+          {/*<Fade left>*/}
+          <h1>I'm Gustaf Halvardsson.</h1>
+          <h2>Computer Science Student @KTH.</h2>
+          <p>
+            Best described by my curiosity for new areas and technologies which
+            is why I’ve done everything from Machine Learning to Animations with
+            mainly technology start-ups as clients.
+          </p>
+          <SocialMediaicons>
+            <a href="https://www.linkedin.com/in/gustafhalvardsson/">
+              <FaLinkedin color="#3E3E3E" size="1.5em" />
+            </a>
+            <a href="https://github.com/gustafvh">
+              <FaGithub color="#3E3E3E" size="1.5em" />
+            </a>
+            <a href="https://medium.com/@gustaf.halvardsson">
+              <FaMedium color="#3E3E3E" size="1.5em" />
+            </a>
+            <a href="https://dribbble.com/gustafvh">
+              <FaDribbble color="#3E3E3E" size="1.5em" />
+            </a>
+          </SocialMediaicons>
+          {/*</Fade>*/}
         </IntroText>
-        <Fade right>
-          <Img fixed={data.gustaf.childImageSharp.fixed} alt="gustaf" />
-        </Fade>
+        {/*<Fade right>*/}
+        <Img fixed={data.gustaf.childImageSharp.fixed} alt="gustaf" />
+        {/*</Fade>*/}
       </ImageAndText>
       <ScrollDown>
-        <Fade bottom>
-          <p>Scroll down</p>
-          <p>
-            <ArrowDown color="#3E3E3E" />
-          </p>
-        </Fade>
+        {/*<Fade bottom>*/}
+        <p>Scroll down</p>
+        <p>
+          <ArrowDown color="#3E3E3E" />
+        </p>
+        {/*</Fade>*/}
       </ScrollDown>
     </Container>
   )

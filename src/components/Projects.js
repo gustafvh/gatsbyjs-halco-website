@@ -28,7 +28,7 @@ const CardBackground = styled.div(
     box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
     overflow: hidden;
     margin: 20px;
-    cursor: pointer;
+    
     transition: all 0.2s ease;
     
     &:hover {
@@ -36,10 +36,7 @@ const CardBackground = styled.div(
     transform: translateY(-8px);
     transition: all 0.2s ease;
     
-    a {
-        transform: translateX(-10px);
-        transition: all 0.2s ease;
-    }
+    
     
     .projectImage {
     
@@ -116,6 +113,13 @@ const ViewProject = styled.div(
         text-decoration: none;
         display: inline-block;
         transition: all 0.2s ease;
+        
+        &:hover {
+        
+        transform: translateX(-10px);
+        transition: all 0.2s ease;
+        
+        }
  
   }
   
@@ -194,7 +198,7 @@ export default function Menu(props) {
       sign: file(relativePath: { eq: "images/projects/project_sign.png" }) {
         childImageSharp {
           fixed(width: 400, quality: 95) {
-            ...GatsbyImageSharpFixed_tracedSVG
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
       }
@@ -203,7 +207,7 @@ export default function Menu(props) {
       ) {
         childImageSharp {
           fixed(width: 400, quality: 95) {
-            ...GatsbyImageSharpFixed_tracedSVG
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
       }
@@ -212,14 +216,14 @@ export default function Menu(props) {
       ) {
         childImageSharp {
           fixed(width: 400, quality: 95) {
-            ...GatsbyImageSharpFixed_tracedSVG
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
       }
       gira: file(relativePath: { eq: "images/projects/project_gira.png" }) {
         childImageSharp {
           fixed(width: 400, quality: 95) {
-            ...GatsbyImageSharpFixed_tracedSVG
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
       }
@@ -228,7 +232,7 @@ export default function Menu(props) {
       ) {
         childImageSharp {
           fixed(width: 400, quality: 95) {
-            ...GatsbyImageSharpFixed_tracedSVG
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
       }
@@ -237,7 +241,7 @@ export default function Menu(props) {
       ) {
         childImageSharp {
           fixed(width: 400, quality: 95) {
-            ...GatsbyImageSharpFixed_tracedSVG
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
       }
