@@ -6,6 +6,7 @@ import styled from "@emotion/styled"
 import Header from "../components/Header"
 import WelcomeSection from "../components/WelcomeSection"
 import Work from "../components/Work"
+import Timeline from "../components/Timeline";
 
 const GlobalStyles = styled.div`
   font-family: 'Open Sans';
@@ -22,6 +23,7 @@ export default function Home() {
             <Header currentSection={currentSection}/>
             <WelcomeSection/>
             <Work/>
+            <Timeline/>
             END
         </GlobalStyles>
 )}

@@ -19,12 +19,13 @@ const Container = styled.div(props =>`
 const CardBackground = styled.div(props =>`
     display: flex;
     flex-direction: row;
+    flex-wrap:  wrap;
     justify-content: space-around;
     border-radius: 25px;
     box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
     overflow: hidden;
     margin: 20px;
-    max-height: 300px;
+    //max-height: 300px;
     cursor: pointer;
     transition: all 0.2s ease;
     
@@ -51,6 +52,8 @@ const CardBackground = styled.div(props =>`
 
 const Image = styled.div(props =>`
 max-width: 300px;
+max-height: 300px;
+
 overflow: hidden;
 
 .projectImage {
@@ -61,12 +64,15 @@ transition: transform 1.5s;
 `)
 
 const Text = styled.div(props =>`
-    padding: 20px;
-    max-width: 20vw;
+    padding: 20px 20px;
+    max-width: 280px;
+    max-height: 300px;
     
     h4 {
     font-weight: bold;
     font-size: 0.9em;
+    margin: 15px 0px;
+
     }
     
     h2 {
@@ -78,6 +84,8 @@ const Text = styled.div(props =>`
     p {
     font-size: 0.9em;
     line-height: 19px;
+    margin: 20px 0px;
+
     }
     
     h3 {
@@ -91,6 +99,8 @@ const Text = styled.div(props =>`
 const ViewProject = styled.div(props =>` 
     text-align: right;
     margin: 20px 0px;
+    margin-bottom: 0px;
+
     a {
         font-weight: bold;
         font-size: 1em;
