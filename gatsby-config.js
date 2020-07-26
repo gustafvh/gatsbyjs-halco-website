@@ -6,7 +6,9 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [`gatsby-plugin-emotion`, `gatsby-transformer-sharp`,
+  plugins: [
+    `gatsby-plugin-emotion`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -23,10 +25,10 @@ module.exports = {
           },
           {
             family: `Open Sans`,
-            variants: [`400`, `700`]
+            variants: [`400`, `700`],
           },
         ],
       },
-    }
+    },
   ],
 }
