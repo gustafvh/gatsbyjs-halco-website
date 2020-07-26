@@ -104,7 +104,7 @@ export default function WelcomeSection() {
 
     const data = useStaticQuery(graphql`
         query {
-            gustaf: file(relativePath: { eq: "images/gustaf_blue.png" }) {childImageSharp {fixed(width: 360, height: 418, quality: 95) {...GatsbyImageSharpFixed_tracedSVG}}}
+            gustaf: file(relativePath: { eq: "images/gustaf-blue.png" }) {childImageSharp {fixed(width: 360, height: 418, quality: 95) {...GatsbyImageSharpFixed_tracedSVG}}}
         }
     `)
 
@@ -132,7 +132,7 @@ export default function WelcomeSection() {
             <ScrollDown>
                 <Fade bottom>
                 <p>Scroll down</p>
-                <p><ArrowDown/></p>
+                <p><ArrowDown color="#3E3E3E"/></p>
                 </Fade>
             </ScrollDown>
         </Container>

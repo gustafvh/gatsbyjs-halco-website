@@ -140,7 +140,7 @@ const ProjectCard = props => (
             <Tools>
                 <h3>{props.toolsUsed} </h3>
             </Tools>
-            <ViewProject> <a href={props.link}>View Project   <ArrowRight/> </a></ViewProject>
+            <ViewProject> <a href={props.link}>View Project   <ArrowRight color="#3399FF"/> </a></ViewProject>
         </Text>
 
     </CardBackground>
