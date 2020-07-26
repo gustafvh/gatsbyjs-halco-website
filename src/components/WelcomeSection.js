@@ -88,7 +88,7 @@ export default function WelcomeSection() {
     query {
       gustaf: file(relativePath: { eq: "images/gustaf-blue.png" }) {
         childImageSharp {
-          fixed(width: 360, height: 418, quality: 95) {
+          fixed(width: 360, height: 418, quality: 85) {
             ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }

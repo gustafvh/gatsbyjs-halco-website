@@ -12,8 +12,8 @@ export default function HeadData() {
       />
       <meta charSet="utf-8" />
 
-      <link rel="canonical" href="http://halco.se/" />
-      <link rel="canonical" href="https://halco.se/#" />
+      <link rel="canonical" href="https://halco.se/" />
+      <meta name="language" content="English" />
       <meta
         name="description"
         content="Best described by my curiosity for new areas and technologies which is why I’ve done everything from Machine Learning to Animations with mainly technology start-ups as clients."
