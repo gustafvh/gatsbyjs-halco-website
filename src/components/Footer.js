@@ -1,10 +1,5 @@
-import React, { useState } from "react"
-import Img from "gatsby-image"
-import { DesktopMenu, MobileMenu } from "./Menu"
+import React from "react"
 import styled from "@emotion/styled"
-import { graphql, useStaticQuery } from "gatsby"
-import Fade from "react-reveal/Fade"
-import { GrMenu, GrClose } from "react-icons/gr"
 
 const Container = styled.div`
   text-align: center;

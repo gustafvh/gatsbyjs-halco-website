@@ -3,7 +3,6 @@ import Img from "gatsby-image"
 import { DesktopMenu, MobileMenu } from "./Menu"
 import styled from "@emotion/styled"
 import { graphql, useStaticQuery } from "gatsby"
-import Fade from "react-reveal/Fade"
 import { GrMenu, GrClose } from "react-icons/gr"
 
 const Container = styled.div``
@@ -76,16 +75,9 @@ export default function Header(props) {
   return (
     <Container>
       <HeaderContainer>
-        {/*<Fade left>*/}
         <Logo>
-          {props.currentSection === "Home" ? (
-            <Img fixed={data.logo.childImageSharp.fixed} alt="Logo" />
-          ) : (
-            <p> Hello </p>
-          )}
+          <Img fixed={data.logo.childImageSharp.fixed} alt="Logo" />
         </Logo>
-        {/*</Fade>*/}
-        {/*<Fade right>*/}
         {menuOpen ? (
           <>
             <DesktopMenu />
@@ -104,7 +96,6 @@ export default function Header(props) {
             </MenuButton>
           </>
         )}
-        {/*</Fade>*/}
       </HeaderContainer>
       {!menuOpen && <MobileMenu />}
     </Container>

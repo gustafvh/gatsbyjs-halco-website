@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 
 import "normalize.css"
 import styled from "@emotion/styled"
@@ -18,12 +18,10 @@ const GlobalStyles = styled.div`
 `
 
 export default function Home() {
-  const [currentSection, setSection] = useState("Home")
-
   return (
     <GlobalStyles>
       <HeadData />
-      <Header currentSection={currentSection} />
+      <Header />
       <WelcomeSection />
       <Timeline />
       <Projects />

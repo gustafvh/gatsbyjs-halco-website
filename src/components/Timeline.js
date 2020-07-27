@@ -140,32 +140,6 @@ const InfoText = styled.div(
 `
 )
 
-const ReadMore = styled.div(
-  props => `
-    
-    margin-top: 10px;
-    
-    p {
-    color: #3399FF;
-    font-size: 1em;
-    font-weight: 700;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.2s ease;
-    margin: 5px 0px;
-
-    
-    &:hover {
-      display: inline-block;
-      transform: translateX(-3px);
-      transition: all 0.2s ease;
-    }
-    }
-
-
-`
-)
-
 const Headline = styled.div(
   props => `
     font-weight: 700;
@@ -206,10 +180,11 @@ const SkillBackground = styled.div(
     border-radius: 20px;
     margin: 5px;
     transition: all 0.8s ease;
+   
   
    p {
     font-size:  1em;
-    margin: 20px 20px;
+    margin: 20px;
     color: ${
       props.color === "#043E78" ||
       props.color === "#3399FF" ||
@@ -217,6 +192,7 @@ const SkillBackground = styled.div(
         ? "#ffffff"
         : "inherit"
     };
+    @media screen and (max-width:800px) {font-size:  0.7em; margin: 7px; }
    } 
    
    ${
@@ -224,7 +200,7 @@ const SkillBackground = styled.div(
        ? "box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);" +
          "transition: all 0.8s ease;"
        : props.skillsSelected.length > 0
-       ? "background: #F5F5F5;" + "p {color: #3e3e3e;}"
+       ? "background: #F5F5F5; p {color: #3e3e3e;}"
        : ""
    }
   
@@ -254,15 +230,58 @@ const TimeScaleContainer = styled.div(
     margin: 10px 10px;
     }
     
+    @media screen and (max-width:800px) {display: none;}
+    
     
     
 `
+)
+
+const ReadMoreContainer = styled.div(
+  props => `
+  
+    
+    ${props.mobile && "@media screen and (min-width:800px) {display:none;}"}
+    ${!props.mobile && "@media screen and (max-width:800px) {display:none;}"}
+    @media screen and (max-width:800px) {display:none;}
+    margin-top: 10px;
+   
+    
+    p {
+    color: #3399FF;
+    font-size: 1em;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s ease;
+    margin: 5px 0px;
+
+    
+    &:hover {
+      display: inline-block;
+      transform: translateX(-3px);
+      transition: all 0.2s ease;
+    }
+    }
+
+
+
+`
+)
+
+const ReadMore = props => (
+  <ReadMoreContainer mobile={props.mobile}>
+    <p>
+      Read more <ArrowRight color="#3399FF" />
+    </p>
+  </ReadMoreContainer>
 )
 
 const CompanyCard = props => (
   <a
     className="cardBackground"
     target="_blank"
+    rel="noopener noreferrer"
     href={props.link}
     onMouseEnter={() => {
       props.setSkillsSelected([])
@@ -278,13 +297,9 @@ const CompanyCard = props => (
       <Img fixed={props.logo.childImageSharp.fixed} alt={props.link} />
       <h1>{props.role} </h1>
       <h3>{props.dates} </h3>
-      <ReadMore>
-        <p href={props.link}>
-          Read more <ArrowRight color="#3399FF" />
-        </p>
-      </ReadMore>
+      <ReadMore mobile={false} />
     </LogoAndText>
-    <VerticalSeperator></VerticalSeperator>
+    <VerticalSeperator />
     <InfoText>
       <Headline>
         <p>{props.headline} </p>
@@ -298,6 +313,7 @@ const CompanyCard = props => (
         </li>
       </ul>
     </InfoText>
+    <ReadMore mobile={true} />
   </a>
 )
 

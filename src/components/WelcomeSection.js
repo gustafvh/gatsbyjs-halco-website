@@ -3,7 +3,6 @@ import Img from "gatsby-image"
 import styled from "@emotion/styled"
 import { graphql, useStaticQuery } from "gatsby"
 import { ArrowDown } from "./specials/svgs"
-import Fade from "react-reveal/Fade"
 import { FaMedium, FaLinkedin, FaGithub, FaDribbble } from "react-icons/fa"
 
 const Container = styled.div`
@@ -82,6 +81,10 @@ const SocialMediaicons = styled.div`
       transform: translateY(-3px);
       transition: all 0.2s ease;
     }
+  }
+
+  @media screen and (max-width: 800px) {
+    justify-content: center;
   }
 `
 

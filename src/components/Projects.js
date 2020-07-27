@@ -4,7 +4,6 @@ import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import { ArrowRight } from "./specials/svgs"
 import Fade from "react-reveal/Fade"
-import Timeline from "./Timeline"
 
 const Container = styled.div(
   props => `
@@ -185,7 +184,6 @@ const ProjectCard = props => (
         <h3>{props.toolsUsed} </h3>
       </Tools>
       <ViewProject>
-        {" "}
         <a href={props.link}>
           View Project <ArrowRight color="#3399FF" />{" "}
         </a>
