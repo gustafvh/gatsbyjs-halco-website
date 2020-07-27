@@ -10,7 +10,8 @@ const Container = styled.div``
 
 const HeaderContainer = styled.div`
   display: flex;
-  padding: 40px;
+  padding: 20px;
+  margin: 20px;
   flex-direction: row;
   flex-wrap: no-wrap;
   align-items: center;

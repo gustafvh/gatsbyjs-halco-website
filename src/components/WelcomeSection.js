@@ -17,6 +17,7 @@ const ImageAndText = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+  margin: 50px 20px;
   
   h1 {
     font-size: 3em;
@@ -26,12 +27,13 @@ const ImageAndText = styled.div`
   img {
   
   text-align: center;
+  max-width: 375px;
   
 `
 
 const IntroText = styled.div`
   max-width: 40vw;
-  min-width: 400px;
+  min-width: 375px;
 
   h1 {
     font-size: 3em;
@@ -40,7 +42,7 @@ const IntroText = styled.div`
   }
 
   h2 {
-    font-family: "Gloria Hallelujah";
+    font-family: "IBM Plex Mono";
     font-size: 1.8em;
     color: #3399ff;
     margin: 20px;
@@ -57,11 +59,11 @@ const ScrollDown = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin: 60px;
+  margin: 40px;
 
   p {
-    font-family: "Gloria Hallelujah";
-    font-size: 1.5em;
+    font-family: "IBM Plex Mono";
+    font-size: 1.2em;
     margin: 5px 0;
   }
 `
@@ -88,7 +90,7 @@ export default function WelcomeSection() {
     query {
       gustaf: file(relativePath: { eq: "images/gustaf-blue.png" }) {
         childImageSharp {
-          fixed(width: 360, height: 418, quality: 95) {
+          fixed(width: 335, quality: 95) {
             ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }

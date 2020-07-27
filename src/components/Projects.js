@@ -11,9 +11,9 @@ const Container = styled.div(
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  margin: 40px;
+  margin: 10px;
  
 `
 )
@@ -30,11 +30,13 @@ const CardBackground = styled.div(
     margin: 20px;
     
     transition: all 0.2s ease;
+    cursor: pointer;
+    
     
     &:hover {
     
-    transform: translateY(-8px);
-    transition: all 0.2s ease;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    transition: all 0.8s ease;
     
     
     
@@ -54,6 +56,8 @@ const Image = styled.div(
   props => `
 max-width: 250px;
 max-height: 300px;
+@media screen and (max-width:800px) { 
+}
 
 overflow: hidden;
 
@@ -79,7 +83,7 @@ const Text = styled.div(
     }
     
     h2 {
-    font-family: Gloria Hallelujah;
+    font-family: 'IBM Plex Mono';
     font-size: 1.5em;
     margin: 10px 0px;
     }
@@ -157,7 +161,7 @@ h2 {
   }
   
 h4 {
-font-family: 'Gloria Hallelujah';
+font-family: 'IBM Plex Mono';
 font-size: 1.1em;
 margin: 0px;
 
@@ -255,9 +259,7 @@ export default function Menu(props) {
           <h2 id="projects">Projects I've done</h2>
           <h4>Click the cards to read more</h4>
         </SectionText>
-      </Fade>
-      <Container>
-        <Fade up>
+        <Container>
           <ProjectCard
             image={data.sign}
             projectType="PUBLICATION + APP"
@@ -307,8 +309,8 @@ export default function Menu(props) {
             toolsUsed="C • Assembler • I/O"
             link="https://github.com/gustafvh/Flappy-Taco-Pic32"
           />
-        </Fade>
-      </Container>
+        </Container>
+      </Fade>
     </>
   )
 }

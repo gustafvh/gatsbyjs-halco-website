@@ -33,9 +33,15 @@ const MenuOptionStyle = styled.div`
 
   a {
     color: #333;
+    font-family: "IBM Plex Mono";
     text-decoration: none;
     display: inline-block;
     transition: all 0.1s ease;
+
+    p {
+      color: #3399ff;
+      display: inline;
+    }
 
     &:hover {
       color: #3399ff;
@@ -47,15 +53,18 @@ const MenuOptionStyle = styled.div`
 
 const MenuOption = props => (
   <MenuOptionStyle>
-    <a href={props.link}>{props.option}</a>
+    <a href={props.link}>
+      <p>{props.number}</p>
+      {props.option}
+    </a>
   </MenuOptionStyle>
 )
 
 const Menu = () => (
   <>
-    <MenuOption option="Home" link="#home" />
-    <MenuOption option="Timeline" link="#timeline" />
-    <MenuOption option="Projects" link="#projects" />
+    <MenuOption number="01." option="Home" link="#home" />
+    <MenuOption number="02." option="Timeline" link="#timeline" />
+    <MenuOption number="03." option="Projects" link="#projects" />
   </>
 )
 

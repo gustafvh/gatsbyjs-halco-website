@@ -3,11 +3,12 @@ import React, { useState } from "react"
 import "normalize.css"
 import styled from "@emotion/styled"
 
+import HeadData from "../components/HeadData"
 import Header from "../components/Header"
 import WelcomeSection from "../components/WelcomeSection"
-import Projects from "../components/Projects"
 import Timeline from "../components/Timeline"
-import HeadData from "../components/HeadData"
+import Projects from "../components/Projects"
+import Footer from "../components/Footer"
 
 const GlobalStyles = styled.div`
   font-family: "Open Sans";
@@ -26,7 +27,7 @@ export default function Home() {
       <WelcomeSection />
       <Timeline />
       <Projects />
-      END
+      <Footer />
     </GlobalStyles>
   )
 }

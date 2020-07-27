@@ -22,7 +22,8 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Gloria Hallelujah`,
+            family: `IBM Plex Mono`,
+            variants: [`400`],
           },
           {
             family: `Open Sans`,

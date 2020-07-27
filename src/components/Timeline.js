@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "@emotion/styled"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
@@ -27,7 +27,7 @@ h2 {
   }
   
 h4 {
-font-family: 'Gloria Hallelujah';
+font-family: 'IBM Plex Mono';
 font-size: 1.1em;
 margin: 10px;
 
@@ -42,7 +42,52 @@ display: flex;
 flex-direction: row;
 overflow: auto;
 
+  hr {
+  border-left: 6px dashed #D4D4D4;
+  transform: rotate(90deg) translateX(100px);
+  height: 100px;
+  z-index: -10;
+
+
+  }
   
+  .cardBackground {
+  
+  display: flex;
+flex-direction: row;
+justify-content: space-between;
+background: #FFFFFF;
+box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 30px;
+padding: 40px;
+margin: 40px;
+margin-top: 20px;
+min-width: 500px;
+transition: all 0.4s ease;
+cursor: pointer;
+color: unset;
+text-decoration: unset;
+
+
+
+&:hover {
+
+box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+transition: all 0.4s ease;
+
+}
+
+@media screen and (max-width:800px) {
+    flex-direction: column;
+    margin: 20px;
+    padding: 40px;
+    min-width: 60vw;
+    justify-content: unset;
+    }
+  
+  
+  
+  }
 
 
 &::-webkit-scrollbar-track
@@ -70,35 +115,12 @@ overflow: auto;
 `
 )
 
-const Cardbackground = styled.div(
-  props => `
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-background: #FFFFFF;
-box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 30px;
-padding: 40px;
-margin: 40px;
-margin-top: 20px;
-min-width: 500px;
-
-@media screen and (max-width:800px) {
-    flex-direction: column;
-    margin: 20px;
-    padding: 40px;
-    min-width: 60vw;
-    justify-content: unset;
-    }
-`
-)
-
 const LogoAndText = styled.div(
   props => `
   min-width: 120px;
 h1  {
 font-size: 1.5em;
-font-family: 'Gloria Hallelujah';
+font-family: 'IBM Plex Mono';
 }
 
 h3 {
@@ -123,13 +145,14 @@ const ReadMore = styled.div(
     
     margin-top: 10px;
     
-    a {
+    p {
     color: #3399FF;
     font-size: 1em;
     font-weight: 700;
     text-decoration: none;
     display: inline-block;
     transition: all 0.2s ease;
+    margin: 5px 0px;
 
     
     &:hover {
@@ -179,14 +202,32 @@ const AllSkillsContainer = styled.div(
 
 const SkillBackground = styled.div(
   props => `
-    background: #F5F5F5;
+    background: ${props.color};
     border-radius: 20px;
-    margin: 10px;
-   
+    margin: 5px;
+    transition: all 0.8s ease;
+  
    p {
     font-size:  1em;
     margin: 20px 20px;
+    color: ${
+      props.color === "#043E78" ||
+      props.color === "#3399FF" ||
+      props.color === "#3399FF"
+        ? "#ffffff"
+        : "inherit"
+    };
+   } 
+   
+   ${
+     props.skillsSelected.includes(props.skillId)
+       ? "box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);" +
+         "transition: all 0.8s ease;"
+       : props.skillsSelected.length > 0
+       ? "background: #F5F5F5;" + "p {color: #3e3e3e;}"
+       : ""
    }
+  
     
 `
 )
@@ -219,15 +260,28 @@ const TimeScaleContainer = styled.div(
 )
 
 const CompanyCard = props => (
-  <Cardbackground>
+  <a
+    className="cardBackground"
+    target="_blank"
+    href={props.link}
+    onMouseEnter={() => {
+      props.setSkillsSelected([])
+      props.setSkillsSelected(
+        props.skillsSelected.concat(props.skillsToHighlight)
+      )
+    }}
+    onMouseLeave={() => {
+      props.setSkillsSelected([])
+    }}
+  >
     <LogoAndText>
       <Img fixed={props.logo.childImageSharp.fixed} alt={props.link} />
       <h1>{props.role} </h1>
       <h3>{props.dates} </h3>
       <ReadMore>
-        <a href={props.link}>
+        <p href={props.link}>
           Read more <ArrowRight color="#3399FF" />
-        </a>
+        </p>
       </ReadMore>
     </LogoAndText>
     <VerticalSeperator></VerticalSeperator>
@@ -244,25 +298,97 @@ const CompanyCard = props => (
         </li>
       </ul>
     </InfoText>
-  </Cardbackground>
+  </a>
 )
 
 const SingleSkill = props => (
-  <SkillBackground>
+  <SkillBackground
+    color={props.color}
+    skillId={props.skillId}
+    skillsSelected={props.skillsSelected}
+  >
     <p>{props.skill}</p>
   </SkillBackground>
 )
 
-const MySkills = props => (
+const SoftSkills = props => (
   <AllSkillsContainer>
     {/*<h2>Skills I’ve learned</h2>*/}
     <Skills>
-      <SingleSkill skill="Business Development" />
-      <SingleSkill skill="Front End Development" />
-      <SingleSkill skill="Machine Learning" />
-      <SingleSkill skill="Data Science" />
-      <SingleSkill skill="Back End Development" />
-      <SingleSkill skill="UX" />
+      <SingleSkill
+        skillId={1}
+        skillsSelected={props.skillsSelected}
+        skill="Business Development"
+        color="#3399FF"
+      />
+      <SingleSkill
+        skillId={2}
+        skillsSelected={props.skillsSelected}
+        skill="Front End Development"
+        color="#043E78"
+      />
+      <SingleSkill
+        skillId={3}
+        skillsSelected={props.skillsSelected}
+        skill="Machine Learning"
+        color="#8EC7FF"
+      />
+      <SingleSkill
+        skillId={4}
+        skillsSelected={props.skillsSelected}
+        skill="Data Science"
+        color="#E1F0FF"
+      />
+      <SingleSkill
+        skillId={5}
+        skillsSelected={props.skillsSelected}
+        skill="Back End Development"
+        color="#8EC7FF"
+      />
+      <SingleSkill
+        skillId={6}
+        skillsSelected={props.skillsSelected}
+        skill="UX"
+        color="#8EC7FF"
+      />
+    </Skills>
+  </AllSkillsContainer>
+)
+
+const TechSkills = props => (
+  <AllSkillsContainer>
+    {/*<h2>Skills I’ve learned</h2>*/}
+    <Skills>
+      <SingleSkill
+        skillId={7}
+        skillsSelected={props.skillsSelected}
+        skill="React/Javascript"
+        color="#043E78"
+      />
+      <SingleSkill
+        skillId={8}
+        skillsSelected={props.skillsSelected}
+        skill="Java/Kotlin"
+        color="#8EC7FF"
+      />
+      <SingleSkill
+        skillId={9}
+        skillsSelected={props.skillsSelected}
+        skill="Python"
+        color="#8EC7FF"
+      />
+      <SingleSkill
+        skillId={10}
+        skillsSelected={props.skillsSelected}
+        skill="HTML/CSS"
+        color="#3399FF"
+      />
+      <SingleSkill
+        skillId={11}
+        skillsSelected={props.skillsSelected}
+        skill="Wordpress"
+        color="#8EC7FF"
+      />
     </Skills>
   </AllSkillsContainer>
 )
@@ -273,7 +399,7 @@ const TimeScale = props => (
     <p>Oct 2017</p>
     <p>March 2018</p>
     <p>June 2019</p>
-    <p>Feb 2020</p>
+    <p>Today</p>
   </TimeScaleContainer>
 )
 
@@ -316,6 +442,15 @@ export default function Timeline(props) {
           }
         }
       }
+      prevas: file(
+        relativePath: { eq: "images/company-logos/prevas-logo.png" }
+      ) {
+        childImageSharp {
+          fixed(height: 30) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
       hedvig: file(
         relativePath: { eq: "images/company-logos/hedvig-logo.png" }
       ) {
@@ -328,6 +463,8 @@ export default function Timeline(props) {
     }
   `)
 
+  const [skillsSelected, setSkillsSelected] = useState([])
+
   return (
     <Container>
       <Fade up>
@@ -337,7 +474,8 @@ export default function Timeline(props) {
             Scroll right to see more <ArrowRight color="#3E3E3E" />
           </h4>
         </SectionText>
-        <MySkills />
+        <SoftSkills skillsSelected={skillsSelected} />
+        <TechSkills skillsSelected={skillsSelected} />
         <CompaniesContainer>
           <CompanyCard
             role="Data Analyst"
@@ -345,9 +483,13 @@ export default function Timeline(props) {
             logo={data.benify}
             headline="HR-tech company which creates cloud-based benefits portals for employers."
             pointOne="Providing development strategies based on data from 1+ million users globally."
-            pointTwo="Developed and lead supplier-agreement system within 7 countries that made internal processes 2 400 times faster, down-time free, and removed on-boarding requirement for newly hires."
+            pointTwo="Developed and lead supplier-agreement system."
             link="https://benify.se"
+            skillsToHighlight={[1, 2, 4, 5, 6, 10]}
+            skillsSelected={skillsSelected}
+            setSkillsSelected={setSkillsSelected}
           />
+          <hr />
           <CompanyCard
             role="Web Developer"
             dates="OCT 2017 - MAR 2018"
@@ -356,7 +498,11 @@ export default function Timeline(props) {
             pointOne="Built HTML/CSS/WP website "
             pointTwo="Built B2C webshop in WooCommerce"
             link="https://reusedremade.com"
+            skillsToHighlight={[2, 10, 11]}
+            skillsSelected={skillsSelected}
+            setSkillsSelected={setSkillsSelected}
           />
+          <hr />
           <CompanyCard
             role="Software Developer"
             dates="MAR 2018 - DEC 2019"
@@ -365,7 +511,11 @@ export default function Timeline(props) {
             pointOne="Develop doctor-patient interaction platform in Angular."
             pointTwo="Built two HTML/CSS/WP websites"
             link="https://asthmatuner.se"
+            skillsToHighlight={[2, 5, 6, 7, 8, 10, 11]}
+            skillsSelected={skillsSelected}
+            setSkillsSelected={setSkillsSelected}
           />
+          <hr />
           <CompanyCard
             role="Business Internship"
             dates="JUN 2019 - SEP 2019"
@@ -374,7 +524,24 @@ export default function Timeline(props) {
             pointOne="Data analysis and process automation for client within retail."
             pointTwo="Proof of Concept and MVP for AR-app in Unity."
             link="https.//accenture.com"
+            skillsToHighlight={[1, 2, 4, 7]}
+            skillsSelected={skillsSelected}
+            setSkillsSelected={setSkillsSelected}
           />
+          <hr />
+          <CompanyCard
+            role="Bachelor Thesis"
+            dates="MAR 2020 - JUN 2019"
+            logo={data.prevas}
+            headline="Medtech consulting company focused on mainly product development for the healthcare industry"
+            pointOne="Developed sign interpretation application to assist people with hearing disabilities."
+            pointTwo="Built application with separated front- and backend in React, Tensorflow and Python."
+            link="https.//prevas.se"
+            skillsToHighlight={[2, 3, 4, 5, 6, 8]}
+            skillsSelected={skillsSelected}
+            setSkillsSelected={setSkillsSelected}
+          />
+          <hr />
           <CompanyCard
             role="Developer Intern"
             dates="FEB 2020 - ONGOING"
@@ -383,6 +550,9 @@ export default function Timeline(props) {
             pointOne="Develop and automate internal platform frontend in React."
             pointTwo="Improve backend architecture and speed in Kotlin."
             link="https.//hedvig.com"
+            skillsToHighlight={[2, 5, 7, 8]}
+            skillsSelected={skillsSelected}
+            setSkillsSelected={setSkillsSelected}
           />
         </CompaniesContainer>
         <TimeScale />
