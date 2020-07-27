@@ -14,6 +14,7 @@ const Container = styled.div`
   background-color: #f5f5f5;
   justify-content: space-around;
   padding: 20px;
+  margin-top: 40px;
 `
 
 const Column = styled.div`

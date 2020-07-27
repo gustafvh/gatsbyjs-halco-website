@@ -56,8 +56,6 @@ const Image = styled.div(
   props => `
 max-width: 250px;
 max-height: 300px;
-@media screen and (max-width:800px) { 
-}
 
 overflow: hidden;
 
@@ -259,7 +257,9 @@ export default function Menu(props) {
           <h2 id="projects">Projects I've done</h2>
           <h4>Click the cards to read more</h4>
         </SectionText>
-        <Container>
+      </Fade>
+      <Container>
+        <Fade up>
           <ProjectCard
             image={data.sign}
             projectType="PUBLICATION + APP"
@@ -309,8 +309,8 @@ export default function Menu(props) {
             toolsUsed="C • Assembler • I/O"
             link="https://github.com/gustafvh/Flappy-Taco-Pic32"
           />
-        </Container>
-      </Fade>
+        </Fade>
+      </Container>
     </>
   )
 }
