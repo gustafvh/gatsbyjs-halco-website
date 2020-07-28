@@ -263,8 +263,41 @@ const ReadMoreContainer = styled.div(
       transition: all 0.2s ease;
     }
     }
+`
+)
 
-
+const SkillLegendContainer = styled.div(
+  props => `
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  justify-content: center;
+  
+  div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px 40px;
+  
+  
+  }
+  
+  span {
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 10px;
+  }
+  
+  .dotOne {
+  background-color: #8EC7FF;
+  }  
+  .dotTwo {
+  background-color: #043E78;
+  }
+  
 
 `
 )
@@ -417,6 +450,19 @@ const TimeScale = props => (
     <p>June 2019</p>
     <p>Today</p>
   </TimeScaleContainer>
+)
+
+const SkillLegend = props => (
+  <SkillLegendContainer>
+    <div>
+      <span className="dotOne" />
+      <p>Intermediate</p>
+    </div>
+    <div>
+      <span className="dotTwo" />
+      <p>Skilled</p>
+    </div>
+  </SkillLegendContainer>
 )
 
 export default function Timeline(props) {
@@ -572,6 +618,7 @@ export default function Timeline(props) {
           />
         </CompaniesContainer>
         <TimeScale />
+        <SkillLegend />
       </Fade>
     </Container>
   )

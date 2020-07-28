@@ -45,6 +45,11 @@ const IntroText = styled.div`
     font-size: 1.8em;
     color: #3399ff;
     margin: 20px;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
   }
 
   p {
@@ -105,9 +110,13 @@ export default function WelcomeSection() {
     <Container>
       <ImageAndText>
         <IntroText>
-          {/*<Fade left>*/}
           <h1>I'm Gustaf Halvardsson.</h1>
-          <h2>Computer Science Student @KTH.</h2>
+          <h2>
+            Computer Science Student{" "}
+            <a target="_blank" rel="noopener noreferrer" href="https://kth.se">
+              @KTH.
+            </a>
+          </h2>
           <p>
             Best described by my curiosity for new areas and technologies which
             is why I’ve done everything from Machine Learning to Animations with
@@ -127,19 +136,14 @@ export default function WelcomeSection() {
               <FaDribbble color="#3E3E3E" size="1.5em" />
             </a>
           </SocialMediaicons>
-          {/*</Fade>*/}
         </IntroText>
-        {/*<Fade right>*/}
         <Img fixed={data.gustaf.childImageSharp.fixed} alt="gustaf" />
-        {/*</Fade>*/}
       </ImageAndText>
       <ScrollDown>
-        {/*<Fade bottom>*/}
         <p>Scroll down</p>
         <p>
           <ArrowDown color="#3E3E3E" />
         </p>
-        {/*</Fade>*/}
       </ScrollDown>
     </Container>
   )
