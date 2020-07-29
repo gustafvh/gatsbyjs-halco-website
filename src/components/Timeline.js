@@ -270,8 +270,10 @@ const SkillLegendContainer = styled.div(
   props => `
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   margin: 10px;
   justify-content: center;
+  
   
   div {
   display: flex;
