@@ -36,5 +36,14 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: "gatsby-plugin-page-progress",
+      options: {
+        height: 5,
+        prependToBody: false,
+        color: `#3399FF`,
+        footerHeight: 300,
+      },
+    },
   ],
 }

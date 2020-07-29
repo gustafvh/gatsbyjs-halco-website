@@ -2,7 +2,7 @@ import React from "react"
 import Img from "gatsby-image"
 import styled from "@emotion/styled"
 import { graphql, useStaticQuery } from "gatsby"
-import { ArrowDown } from "./specials/svgs"
+import { ArrowDown } from "./utils/svgs"
 import { FaMedium, FaLinkedin, FaGithub, FaDribbble } from "react-icons/fa"
 
 const Container = styled.div`

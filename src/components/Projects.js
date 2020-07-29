@@ -2,7 +2,7 @@ import React from "react"
 import styled from "@emotion/styled"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
-import { ArrowRight } from "./specials/svgs"
+import { ArrowRight } from "./utils/svgs"
 import Fade from "react-reveal/Fade"
 
 const Container = styled.div(

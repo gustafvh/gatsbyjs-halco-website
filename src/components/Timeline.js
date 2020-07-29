@@ -1,9 +1,9 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import styled from "@emotion/styled"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import Fade from "react-reveal/Fade"
-import { ArrowRight } from "./specials/svgs"
+import { ArrowRight } from "./utils/svgs"
 
 const Container = styled.div(
   props => `
@@ -534,97 +534,99 @@ export default function Timeline(props) {
 
   return (
     <Container>
-      <Fade up>
-        <SectionText>
-          <h2 id="timeline">My Timeline</h2>
-          <h4>
-            Scroll right to see more <ArrowRight color="#3E3E3E" />
-          </h4>
-        </SectionText>
-        <SoftSkills skillsSelected={skillsSelected} />
-        <TechSkills skillsSelected={skillsSelected} />
-        <CompaniesContainer>
-          <CompanyCard
-            role="Data Analyst"
-            dates="AUG 2016 - JUN 2018"
-            logo={data.benify}
-            headline="HR-tech company which creates cloud-based benefits portals for employers."
-            pointOne="Providing development strategies based on data from 1+ million users globally."
-            pointTwo="Developed and lead supplier-agreement system."
-            link="https://benify.se"
-            skillsToHighlight={[1, 2, 4, 5, 6, 10]}
-            skillsSelected={skillsSelected}
-            setSkillsSelected={setSkillsSelected}
-          />
-          <hr />
-          <CompanyCard
-            role="Web Developer"
-            dates="OCT 2017 - MAR 2018"
-            logo={data.reused}
-            headline="Sustainable Consumerism company that sells reusable fabric bags that are currently sold online as well as at Systembolaget, ICA and Lidl."
-            pointOne="Built HTML/CSS/WP website "
-            pointTwo="Built B2C webshop in WooCommerce"
-            link="https://reusedremade.com"
-            skillsToHighlight={[2, 10, 11]}
-            skillsSelected={skillsSelected}
-            setSkillsSelected={setSkillsSelected}
-          />
-          <hr />
-          <CompanyCard
-            role="Software Developer"
-            dates="MAR 2018 - DEC 2019"
-            logo={data.asthmatuner}
-            headline="Medtech company that develops self-management systems and home diagnostics for respiratory diseases."
-            pointOne="Develop doctor-patient interaction platform in Angular."
-            pointTwo="Built two HTML/CSS/WP websites"
-            link="https://asthmatuner.se"
-            skillsToHighlight={[2, 5, 6, 7, 8, 10, 11]}
-            skillsSelected={skillsSelected}
-            setSkillsSelected={setSkillsSelected}
-          />
-          <hr />
-          <CompanyCard
-            role="Business Internship"
-            dates="JUN 2019 - SEP 2019"
-            logo={data.accenture}
-            headline="Global management and technology consulting company."
-            pointOne="Data analysis and process automation for client within retail."
-            pointTwo="Proof of Concept and MVP for AR-app in Unity."
-            link="https://accenture.com"
-            skillsToHighlight={[1, 2, 4, 7]}
-            skillsSelected={skillsSelected}
-            setSkillsSelected={setSkillsSelected}
-          />
-          <hr />
-          <CompanyCard
-            role="Bachelor Thesis"
-            dates="MAR 2020 - JUN 2019"
-            logo={data.prevas}
-            headline="Medtech consulting company focused on mainly product development for the healthcare industry"
-            pointOne="Developed sign interpretation application to assist people with hearing disabilities."
-            pointTwo="Built application with separated front- and backend in React, Tensorflow and Python."
-            link="https://prevas.se"
-            skillsToHighlight={[2, 3, 4, 5, 6, 8]}
-            skillsSelected={skillsSelected}
-            setSkillsSelected={setSkillsSelected}
-          />
-          <hr />
-          <CompanyCard
-            role="Developer Intern"
-            dates="FEB 2020 - ONGOING"
-            logo={data.hedvig}
-            headline="Insurtech company named one of the 100 best startups in Europe by Wired."
-            pointOne="Develop and automate internal platform frontend in React."
-            pointTwo="Improve backend architecture and speed in Kotlin."
-            link="https://hedvig.com"
-            skillsToHighlight={[2, 5, 7, 8]}
-            skillsSelected={skillsSelected}
-            setSkillsSelected={setSkillsSelected}
-          />
-        </CompaniesContainer>
-        <TimeScale />
-        <SkillLegend />
-      </Fade>
+      <div onScroll={() => console.log(window.scrollY)}>
+        <Fade up>
+          <SectionText>
+            <h2 id="timeline">My Timeline</h2>
+            <h4>
+              Scroll right to see more <ArrowRight color="#3E3E3E" />
+            </h4>
+          </SectionText>
+          <SoftSkills skillsSelected={skillsSelected} />
+          <TechSkills skillsSelected={skillsSelected} />
+          <CompaniesContainer>
+            <CompanyCard
+              role="Data Analyst"
+              dates="AUG 2016 - JUN 2018"
+              logo={data.benify}
+              headline="HR-tech company which creates cloud-based benefits portals for employers."
+              pointOne="Providing development strategies based on data from 1+ million users globally."
+              pointTwo="Developed and lead supplier-agreement system."
+              link="https://benify.se"
+              skillsToHighlight={[1, 2, 4, 5, 6, 10]}
+              skillsSelected={skillsSelected}
+              setSkillsSelected={setSkillsSelected}
+            />
+            <hr />
+            <CompanyCard
+              role="Web Developer"
+              dates="OCT 2017 - MAR 2018"
+              logo={data.reused}
+              headline="Sustainable Consumerism company that sells reusable fabric bags that are currently sold online as well as at Systembolaget, ICA and Lidl."
+              pointOne="Built HTML/CSS/WP website "
+              pointTwo="Built B2C webshop in WooCommerce"
+              link="https://reusedremade.com"
+              skillsToHighlight={[2, 10, 11]}
+              skillsSelected={skillsSelected}
+              setSkillsSelected={setSkillsSelected}
+            />
+            <hr />
+            <CompanyCard
+              role="Software Developer"
+              dates="MAR 2018 - DEC 2019"
+              logo={data.asthmatuner}
+              headline="Medtech company that develops self-management systems and home diagnostics for respiratory diseases."
+              pointOne="Develop doctor-patient interaction platform in Angular."
+              pointTwo="Built two HTML/CSS/WP websites"
+              link="https://asthmatuner.se"
+              skillsToHighlight={[2, 5, 6, 7, 8, 10, 11]}
+              skillsSelected={skillsSelected}
+              setSkillsSelected={setSkillsSelected}
+            />
+            <hr />
+            <CompanyCard
+              role="Business Internship"
+              dates="JUN 2019 - SEP 2019"
+              logo={data.accenture}
+              headline="Global management and technology consulting company."
+              pointOne="Data analysis and process automation for client within retail."
+              pointTwo="Proof of Concept and MVP for AR-app in Unity."
+              link="https://accenture.com"
+              skillsToHighlight={[1, 2, 4, 7]}
+              skillsSelected={skillsSelected}
+              setSkillsSelected={setSkillsSelected}
+            />
+            <hr />
+            <CompanyCard
+              role="Bachelor Thesis"
+              dates="MAR 2020 - JUN 2019"
+              logo={data.prevas}
+              headline="Medtech consulting company focused on mainly product development for the healthcare industry"
+              pointOne="Developed sign interpretation application to assist people with hearing disabilities."
+              pointTwo="Built application with separated front- and backend in React, Tensorflow and Python."
+              link="https://prevas.se"
+              skillsToHighlight={[2, 3, 4, 5, 6, 8]}
+              skillsSelected={skillsSelected}
+              setSkillsSelected={setSkillsSelected}
+            />
+            <hr />
+            <CompanyCard
+              role="Developer Intern"
+              dates="FEB 2020 - ONGOING"
+              logo={data.hedvig}
+              headline="Insurtech company named one of the 100 best startups in Europe by Wired."
+              pointOne="Develop and automate internal platform frontend in React."
+              pointTwo="Improve backend architecture and speed in Kotlin."
+              link="https://hedvig.com"
+              skillsToHighlight={[2, 5, 7, 8]}
+              skillsSelected={skillsSelected}
+              setSkillsSelected={setSkillsSelected}
+            />
+          </CompaniesContainer>
+          <TimeScale />
+          <SkillLegend />
+        </Fade>
+      </div>
     </Container>
   )
 }
