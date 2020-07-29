@@ -302,7 +302,7 @@ export default function Menu(props) {
           <ProjectCard
             image={data.flappy}
             projectType="8-bit Game"
-            name="Gira The Explorer Game"
+            name="Flappy Taco Retro Game"
             text="A 2D Flappy Bird game written in C and Assembler directly on a PIC32-processor."
             toolsUsed="C • Assembler • I/O"
             link="https://github.com/gustafvh/Flappy-Taco-Pic32"

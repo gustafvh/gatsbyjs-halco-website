@@ -16,7 +16,7 @@ const ImageAndText = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  margin: 50px 20px;
+  margin: 20px;
   
   h1 {
     font-size: 3em;
@@ -63,7 +63,7 @@ const ScrollDown = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin: 40px;
+  margin: 20px;
 
   p {
     font-family: "IBM Plex Mono";
@@ -96,7 +96,7 @@ const SocialMediaicons = styled.div`
 export default function WelcomeSection() {
   const data = useStaticQuery(graphql`
     query {
-      gustaf: file(relativePath: { eq: "images/gustaf-blue.png" }) {
+      gustaf: file(relativePath: { eq: "images/gustaf-green.png" }) {
         childImageSharp {
           fixed(width: 335, quality: 95) {
             ...GatsbyImageSharpFixed_withWebp_tracedSVG
@@ -118,9 +118,10 @@ export default function WelcomeSection() {
             </a>
           </h2>
           <p>
-            Best described by my curiosity for new areas and technologies which
-            is why I’ve done everything from Machine Learning to Animations with
-            mainly technology start-ups as clients.
+            I'm best described by my curiosity for new areas and technologies
+            which has lead me to explore and learn more about everything from
+            Machine Learning to Animations with mainly technology start-ups as
+            clients.
           </p>
           <SocialMediaicons>
             <a href="https://www.linkedin.com/in/gustafhalvardsson/">

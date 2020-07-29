@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "@emotion/styled"
+import scrollTo from "gatsby-plugin-smoothscroll"
 
 const DesktopContainer = styled.div(
   props => `
@@ -37,6 +38,7 @@ const MenuOptionStyle = styled.div`
     text-decoration: none;
     display: inline-block;
     transition: all 0.1s ease;
+    cursor: pointer;
 
     p {
       color: #3399ff;
@@ -53,7 +55,7 @@ const MenuOptionStyle = styled.div`
 
 const MenuOption = props => (
   <MenuOptionStyle>
-    <a href={props.link}>
+    <a onClick={() => scrollTo(props.link)}>
       <p>{props.number}</p>
       {props.option}
     </a>
@@ -62,8 +64,8 @@ const MenuOption = props => (
 
 const Menu = () => (
   <>
-    <MenuOption number="01." option="Home" link="#home" />
-    <MenuOption number="02." option="Timeline" link="#timeline" />
+    <MenuOption number="01." option="Timeline" link="#timeline" />
+    <MenuOption number="02." option="About Me" link="#aboutme" />
     <MenuOption number="03." option="Projects" link="#projects" />
   </>
 )

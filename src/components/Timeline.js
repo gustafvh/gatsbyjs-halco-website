@@ -295,6 +295,10 @@ const SkillLegendContainer = styled.div(
   background-color: #8EC7FF;
   }  
   .dotTwo {
+  background-color: #3399FF;
+  }
+  
+  .dotThree {
   background-color: #043E78;
   }
   
@@ -316,12 +320,7 @@ const CompanyCard = props => (
     target="_blank"
     rel="noopener noreferrer"
     href={props.link}
-    onMouseEnter={() => {
-      props.setSkillsSelected([])
-      props.setSkillsSelected(
-        props.skillsSelected.concat(props.skillsToHighlight)
-      )
-    }}
+    onMouseEnter={() => props.setSkillsSelected(props.skillsToHighlight)}
     onMouseLeave={() => {
       props.setSkillsSelected([])
     }}
@@ -380,7 +379,7 @@ const SoftSkills = props => (
         skillId={3}
         skillsSelected={props.skillsSelected}
         skill="Machine Learning"
-        color="#8EC7FF"
+        color="#E1F0FF"
       />
       <SingleSkill
         skillId={4}
@@ -392,13 +391,13 @@ const SoftSkills = props => (
         skillId={5}
         skillsSelected={props.skillsSelected}
         skill="Back End Development"
-        color="#8EC7FF"
+        color="#3399FF"
       />
       <SingleSkill
         skillId={6}
         skillsSelected={props.skillsSelected}
         skill="UX"
-        color="#8EC7FF"
+        color="#3399FF"
       />
     </Skills>
   </AllSkillsContainer>
@@ -418,13 +417,13 @@ const TechSkills = props => (
         skillId={8}
         skillsSelected={props.skillsSelected}
         skill="Java/Kotlin"
-        color="#8EC7FF"
+        color="#3399FF"
       />
       <SingleSkill
         skillId={9}
         skillsSelected={props.skillsSelected}
         skill="Python"
-        color="#8EC7FF"
+        color="#E1F0FF"
       />
       <SingleSkill
         skillId={10}
@@ -436,7 +435,7 @@ const TechSkills = props => (
         skillId={11}
         skillsSelected={props.skillsSelected}
         skill="Wordpress"
-        color="#8EC7FF"
+        color="#3399FF"
       />
     </Skills>
   </AllSkillsContainer>
@@ -456,10 +455,14 @@ const SkillLegend = props => (
   <SkillLegendContainer>
     <div>
       <span className="dotOne" />
-      <p>Intermediate</p>
+      <p>Basic Knowledge</p>
     </div>
     <div>
       <span className="dotTwo" />
+      <p>Intermediate</p>
+    </div>
+    <div>
+      <span className="dotThree" />
       <p>Skilled</p>
     </div>
   </SkillLegendContainer>
@@ -585,7 +588,7 @@ export default function Timeline(props) {
             headline="Global management and technology consulting company."
             pointOne="Data analysis and process automation for client within retail."
             pointTwo="Proof of Concept and MVP for AR-app in Unity."
-            link="https.//accenture.com"
+            link="https://accenture.com"
             skillsToHighlight={[1, 2, 4, 7]}
             skillsSelected={skillsSelected}
             setSkillsSelected={setSkillsSelected}
@@ -598,7 +601,7 @@ export default function Timeline(props) {
             headline="Medtech consulting company focused on mainly product development for the healthcare industry"
             pointOne="Developed sign interpretation application to assist people with hearing disabilities."
             pointTwo="Built application with separated front- and backend in React, Tensorflow and Python."
-            link="https.//prevas.se"
+            link="https://prevas.se"
             skillsToHighlight={[2, 3, 4, 5, 6, 8]}
             skillsSelected={skillsSelected}
             setSkillsSelected={setSkillsSelected}
@@ -611,7 +614,7 @@ export default function Timeline(props) {
             headline="Insurtech company named one of the 100 best startups in Europe by Wired."
             pointOne="Develop and automate internal platform frontend in React."
             pointTwo="Improve backend architecture and speed in Kotlin."
-            link="https.//hedvig.com"
+            link="https://hedvig.com"
             skillsToHighlight={[2, 5, 7, 8]}
             skillsSelected={skillsSelected}
             setSkillsSelected={setSkillsSelected}
