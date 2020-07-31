@@ -39,7 +39,7 @@ export default function Home() {
       <Header />
       <WelcomeSection />
       <Timeline />
-      <AboutMe />
+      {/*<AboutMe />*/}
       <Projects />
       <Footer />
     </GlobalStyles>

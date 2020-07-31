@@ -39,10 +39,17 @@ margin: 10px;
 const CompaniesContainer = styled.div(
   props => `
 display: flex;
+
+
 flex-direction: column;
+
 overflow: auto;
 max-height: 500px;
 max-width: 700px;
+
+@media screen and (max-width:800px) {
+flex-direction: row;
+ max-height: unset;}
 
 hr {
   border: 3px dashed #D4D4D4;
@@ -64,6 +71,7 @@ padding: 40px;
 margin: 40px;
 margin-top: 20px;
 min-width: 500px;
+
 transition: all 0.4s ease;
 cursor: pointer;
 color: unset;
@@ -357,7 +365,7 @@ const CompanyCard = props => (
       <Img fixed={props.logo.childImageSharp.fixed} alt={props.link} />
       <h1>{props.role} </h1>
       <h3>{props.dates} </h3>
-      <ReadMore mobile={false} />
+      {/*<ReadMore mobile={false} />*/}
     </LogoAndText>
     <VerticalSeperator />
     <InfoText>
@@ -373,7 +381,7 @@ const CompanyCard = props => (
         </li>
       </ul>
     </InfoText>
-    <ReadMore mobile={true} />
+    {/*<ReadMore mobile={true} />*/}
   </a>
 )
 
