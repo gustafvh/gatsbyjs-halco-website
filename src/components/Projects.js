@@ -75,7 +75,7 @@ const Text = styled.div(
     h4 {
     font-weight: bold;
     font-size: 0.8em;
-    margin: 15px 0px;
+    margin: 5px 0px;
 
     }
     

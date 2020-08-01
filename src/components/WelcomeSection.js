@@ -68,7 +68,7 @@ const ScrollDown = styled.div`
   p {
     font-family: "IBM Plex Mono";
     font-size: 1.2em;
-    margin: 5px 0;
+    margin: 10px 0;
   }
 `
 

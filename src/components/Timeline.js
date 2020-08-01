@@ -49,11 +49,12 @@ max-width: 700px;
 
 @media screen and (max-width:800px) {
 flex-direction: row;
- max-height: unset;}
+ max-height: unset;
+ }
 
 hr {
   border: 3px dashed #D4D4D4;
-  
+  @media screen and (max-width:800px) {display:none;}
   transform: rotate(90deg);
   width: 100px;
   z-index: -10;
@@ -150,7 +151,7 @@ img {
 
 const InfoText = styled.div(
   props => `
-  width: 500px;
+  width: 600px;
   @media screen and (max-width:800px) {
     width: unset;
     }

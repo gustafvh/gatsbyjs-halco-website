@@ -18,6 +18,11 @@ const GlobalStyles = styled.div`
   :root {
     scroll-behavior: smooth;
   }
+
+  p {
+    letter-spacing: 0;
+    line-height: 1.4em;
+  }
 `
 
 export default function Home() {
@@ -39,7 +44,7 @@ export default function Home() {
       <Header />
       <WelcomeSection />
       <Timeline />
-      {/*<AboutMe />*/}
+      <AboutMe />
       <Projects />
       <Footer />
     </GlobalStyles>
