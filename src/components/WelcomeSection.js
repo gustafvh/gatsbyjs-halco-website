@@ -63,7 +63,7 @@ const ScrollDown = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin: 20px;
+  margin: 60px;
 
   p {
     font-family: "IBM Plex Mono";
