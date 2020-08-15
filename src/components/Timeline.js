@@ -7,6 +7,7 @@ import { ArrowRight } from "./utils/svgs"
 
 const Container = styled.div(
   props => `
+  
 `
 )
 
@@ -99,33 +100,6 @@ transition: all 0.4s ease;
   
   }
 
-
-&::-webkit-scrollbar-track
-{
-    background-color: #F5F5F5;
-    border-radius: 30px;
-    margin: 10%;
-    
-    
-}
-
-&::-webkit-scrollbar
-{
-    background-color: none;
-    width: 10px;
-    @media screen and (max-width:800px) {
-    display: none;
-    }
-    
-    
-}
-
-&::-webkit-scrollbar-thumb
-{
-    background-color: #3E3E3E;
-    opacity: 1;
-    border-radius: 30px;
-}
 `
 )
 
@@ -336,6 +310,22 @@ const SectionRow = styled.div(
     justify-content: center;
     margin: 20px;
     align-items: center;
+`
+)
+
+const ScrollRightMobile = styled.div(
+  props => `
+    text-align: center;
+    
+    h4 {
+   display: none;
+   color: #3E3E3E;
+   
+   
+   @media screen and (max-width:800px) {
+   display: unset;
+  
+  }
     
       
     
@@ -647,6 +637,11 @@ export default function Timeline(props) {
             </CompaniesContainer>
             <TimeScale />
           </SectionRow>
+          <ScrollRightMobile>
+            <h4>
+              Scroll right <ArrowRight />
+            </h4>
+          </ScrollRightMobile>
         </Fade>
       </div>
     </Container>

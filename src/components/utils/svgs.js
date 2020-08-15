@@ -10,7 +10,7 @@ export const ArrowDown = props => (
   >
     <path
       d="M10.9393 13.0607C11.5251 13.6464 12.4749 13.6464 13.0607 13.0607L22.6066 3.51472C23.1924 2.92893 23.1924 1.97918 22.6066 1.3934C22.0208 0.807612 21.0711 0.807612 20.4853 1.3934L12 9.87868L3.51472 1.3934C2.92893 0.807612 1.97918 0.807612 1.3934 1.3934C0.807612 1.97918 0.807612 2.92893 1.3934 3.51472L10.9393 13.0607ZM10.5 11V12H13.5V11H10.5Z"
-      fill={props.color}
+      fill={props.color || "#3E3E3E"}
     />
   </svg>
 )
@@ -25,75 +25,22 @@ export const ArrowRight = props => (
   >
     <path
       d="M32.4479 8.70711C32.8384 8.31658 32.8384 7.68342 32.4479 7.29289L26.0839 0.928932C25.6934 0.538408 25.0602 0.538408 24.6697 0.928932C24.2792 1.31946 24.2792 1.95262 24.6697 2.34315L30.3265 8L24.6697 13.6569C24.2792 14.0474 24.2792 14.6805 24.6697 15.0711C25.0602 15.4616 25.6934 15.4616 26.0839 15.0711L32.4479 8.70711ZM0.611328 9H31.7408V7H0.611328V9Z"
-      fill={props.color}
+      fill={props.color || "#3E3E3E"}
     />
   </svg>
 )
 
-export const Ellips = props => (
+export const ArrowUp = props => (
   <svg
-    width="496"
-    height="558"
-    viewBox="0 0 496 558"
+    width="87"
+    height="74"
+    viewBox="0 0 87 74"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <g filter="url(#filter0_ii)">
-      <path
-        d="M496 355.072C496 513.776 332.559 557.645 214.571 557.645C96.5838 557.645 0.936085 428.991 0.936085 270.287C0.936085 111.584 37.3357 0 155.323 0C273.311 0 496 196.369 496 355.072Z"
-        fill="#3399FF"
-      />
-    </g>
-    <defs>
-      <filter
-        id="filter0_ii"
-        x="0.936035"
-        y="-4"
-        width="495.064"
-        height="565.645"
-        filterUnits="userSpaceOnUse"
-        color-interpolation-filters="sRGB"
-      >
-        <feFlood flood-opacity="0" result="BackgroundImageFix" />
-        <feBlend
-          mode="normal"
-          in="SourceGraphic"
-          in2="BackgroundImageFix"
-          result="shape"
-        />
-        <feColorMatrix
-          in="SourceAlpha"
-          type="matrix"
-          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-          result="hardAlpha"
-        />
-        <feOffset dy="-4" />
-        <feGaussianBlur stdDeviation="2" />
-        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-        <feColorMatrix
-          type="matrix"
-          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-        />
-        <feBlend mode="normal" in2="shape" result="effect1_innerShadow" />
-        <feColorMatrix
-          in="SourceAlpha"
-          type="matrix"
-          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-          result="hardAlpha"
-        />
-        <feOffset dy="4" />
-        <feGaussianBlur stdDeviation="2" />
-        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-        <feColorMatrix
-          type="matrix"
-          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-        />
-        <feBlend
-          mode="normal"
-          in2="effect1_innerShadow"
-          result="effect2_innerShadow"
-        />
-      </filter>
-    </defs>
+    <path
+      d="M34.5482 59.7763L34.5482 58.2763L34.5482 58.2763L34.5482 59.7763ZM56.6224 9.46053L55.5187 10.4763L55.5187 10.4763L56.6224 9.46053ZM55.3155 6.47425C54.4878 6.43992 53.789 7.08308 53.7546 7.91079L53.1951 21.3992C53.1607 22.2269 53.8039 22.9257 54.6316 22.9601C55.4593 22.9944 56.1582 22.3513 56.1925 21.5235L56.6899 9.53385L68.6796 10.0312C69.5073 10.0656 70.2061 9.4224 70.2404 8.59468C70.2748 7.76697 69.6316 7.06814 68.8039 7.0338L55.3155 6.47425ZM13.5 61.2763L34.5482 61.2763L34.5482 58.2763L13.5 58.2763L13.5 61.2763ZM57.7261 8.44474L56.357 6.95718L54.1496 8.98875L55.5187 10.4763L57.7261 8.44474ZM34.5482 61.2763C61.9863 61.2762 76.307 28.6339 57.7261 8.44474L55.5187 10.4763C72.3299 28.7427 59.3732 58.2762 34.5482 58.2763L34.5482 61.2763Z"
+      fill="#3E3E3E"
+    />
   </svg>
 )

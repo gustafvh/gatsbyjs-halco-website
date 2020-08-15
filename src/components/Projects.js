@@ -26,7 +26,14 @@ const CardBackground = styled.div(
     border-radius: 25px;
     box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
     overflow: hidden;
-    margin: 20px;
+    margin: 40px;
+    @media screen and (max-width:450px) { 
+    margin: 5px;
+    box-shadow: unset;
+    border-radius: unset;
+    }
+    
+    
     
     transition: all 0.2s ease;
     cursor: pointer;
@@ -53,7 +60,7 @@ const CardBackground = styled.div(
 
 const Image = styled.div(
   props => `
-max-width: 250px;
+    max-width: 360px;
 max-height: 300px;
 
 overflow: hidden;

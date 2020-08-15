@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import Fade from "react-reveal/Fade"
-import { Ellips, VennDiagram } from "./utils/svgs"
+import { ArrowUp } from "./utils/svgs"
 
 const Container = styled.div(
   props => `
@@ -42,10 +42,14 @@ const Image = styled.div(
   display: flex;
   flex-direction: column;
   flex-basis: content;
-  position: absolute;
-  margin-top: ${props.marginTop};
-  margin-left: ${props.marginLeft};
-  transform: rotate(${props.rotation}deg);
+  position: absolute;  
+  transform: rotate(${props.rotation}deg) translate(${props.marginLeft}, ${props.marginTop});
+  
+ @media screen and (max-width:450px) { 
+ position: inherit; 
+ transform: unset;
+ }
+
   padding: 15px;
   padding-bottom: 0px;
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
@@ -57,14 +61,12 @@ const Image = styled.div(
   margin: 20px;
   font-family: 'Gloria Hallelujah';
   font-size: 1.2em;
-  
   }
   
   &:hover {
-    transform: rotate(0deg);
     transition: all 0.4s ease;
     z-index: 10000;
-    transform: scale(1.2,1.2)
+    transform: rotate(0deg) scale(1.2,1.2) translate(${props.marginLeft}, ${props.marginTop});
 
   }
 
@@ -75,6 +77,7 @@ const SectionRow = styled.div(
   props => `
 display: flex;
 flex-direction: row;
+flex-wrap: wrap;
 justify-content: center;
   `
 )
@@ -106,16 +109,29 @@ const Paragraph = styled.div(
   `
 )
 
-const ShapeAndImages = styled.div(
+const ImagesContainer = styled.div(
   props => `
   margin: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 300px;
+  height: 800px;
   flex-basis: 600px;
   
+  h3 {
+  position: absolute;
+  transform: translate(230px, 720px);
+  color: #3E3E3E;
+  font-family: 'Gloria Hallelujah';
+  }
+     @media screen and (max-width:450px) { 
+  flex-direction: row; 
+  overflow: auto;
+  height: 700px;
+  margin: 0px;
+  h3 {display: none; }
+  }
   `
 )
 
@@ -186,11 +202,11 @@ export default function AboutMe(props) {
         </SectionText>
       </Fade>
       <SectionRow>
-        <ShapeAndImages>
+        <ImagesContainer>
           <Picture
             image={data.martinSpotify}
             marginTop="0px"
-            marginLeft="-100px"
+            marginLeft="-50px"
             rotation="-20"
             text="Entrepreneurship competition "
           />
@@ -203,27 +219,31 @@ export default function AboutMe(props) {
           />
           <Picture
             image={data.lofoten}
-            marginTop="400px"
-            marginLeft="0px"
-            rotation="-5"
+            marginTop="250px"
+            marginLeft="-80px"
+            rotation="-3"
             text="Reinebriggen, Norway"
           />
           <Picture
             image={data.itpanel}
-            marginTop="600px"
-            marginLeft="200px"
+            marginTop="280px"
+            marginLeft="250px"
             rotation="10"
             text="Universum Awards 2020"
           />
           <Picture
             image={data.uber}
-            marginTop="750px"
+            marginTop="440px"
             marginLeft="-50px"
             rotation="-5"
             text="Leadership program @Uber "
           />
-          {/*<h3>Psst. Hover me!</h3>*/}
-        </ShapeAndImages>
+
+          <h3>
+            Psst. Hover me!
+            <ArrowUp />
+          </h3>
+        </ImagesContainer>
         <Text>
           <Paragraph>
             <h2>Started early </h2>

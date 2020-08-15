@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 
 import "normalize.css"
 import styled from "@emotion/styled"
@@ -26,18 +26,6 @@ const GlobalStyles = styled.div`
 `
 
 export default function Home() {
-  const [scroll, setScroll] = useState(0)
-
-  useEffect(() => {
-    // window.addEventListener("keydown", function (event) {
-    //   event.preventDefault()
-    // })
-    // window.addEventListener("scroll", function (event) {
-    //   let scroll = this.scrollY
-    //   console.log(scroll)
-    // })
-  })
-
   return (
     <GlobalStyles>
       <HeadData />
