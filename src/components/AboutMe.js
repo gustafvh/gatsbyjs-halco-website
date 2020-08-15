@@ -250,11 +250,11 @@ export default function AboutMe(props) {
               <h2>Started early </h2>
               <p>
                 At age 16 I competed with some friends in a national
-                entreprenourship competition and won silver. This lead me to
+                entrepreneurship competition and won silver. This lead me to
                 start my own consulting company to make websites for small
                 companies which started as rough and simple Wordpress-sites. But
                 today 5 years later I make sophisticated web applications and
-                other software in mostly Javascript for tech-start ups.
+                other software for tech-start ups.
               </p>
             </Paragraph>
             <Paragraph>

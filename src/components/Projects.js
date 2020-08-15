@@ -13,12 +13,15 @@ const Container = styled.div(
   justify-content: center;
   align-items: center;
   margin: 10px;
- 
-`
-)
-
-const CardBackground = styled.div(
-  props => `
+  
+  
+  
+  a {
+    color: unset;
+    text-decoration: unset;
+   }
+  
+  .cardBackground {
     display: flex;
     flex-direction: row;
     flex-wrap:  wrap;
@@ -31,6 +34,7 @@ const CardBackground = styled.div(
     margin: 5px;
     box-shadow: unset;
     border-radius: unset;
+    color: unset;
     }
     
     
@@ -40,6 +44,11 @@ const CardBackground = styled.div(
     
     
     &:hover {
+    
+    a {
+        transform: translateX(-10px);
+        transition: all 0.2s ease;
+        }
     
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     transition: all 0.8s ease;
@@ -53,14 +62,16 @@ const CardBackground = styled.div(
     }
     
     }
-    
-    
+  
+  
+  }
+ 
 `
 )
 
 const Image = styled.div(
   props => `
-    max-width: 360px;
+    max-width: 340px;
 max-height: 300px;
 
 overflow: hidden;
@@ -78,7 +89,7 @@ const Text = styled.div(
     padding: 20px 20px;
     max-width: 260px;
     max-height: 300px;
-    
+   
     h4 {
     font-weight: bold;
     font-size: 0.8em;
@@ -120,14 +131,7 @@ const ViewProject = styled.div(
         color: #3399FF;
         text-decoration: none;
         display: inline-block;
-        transition: all 0.2s ease;
-        
-        &:hover {
-        
-        transform: translateX(-10px);
-        transition: all 0.2s ease;
-        
-        }
+        transition: all 0.2s ease;       
  
   }
   
@@ -175,7 +179,12 @@ margin: 0px;
 )
 
 const ProjectCard = props => (
-  <CardBackground>
+  <a
+    className="cardBackground"
+    target="_blank"
+    rel="noopener noreferrer"
+    href={props.link}
+  >
     <Image>
       <Img
         className="projectImage"
@@ -196,7 +205,7 @@ const ProjectCard = props => (
         </a>
       </ViewProject>
     </Text>
-  </CardBackground>
+  </a>
 )
 
 export default function Menu(props) {

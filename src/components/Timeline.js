@@ -231,35 +231,6 @@ const TimeScaleContainer = styled.div(
 `
 )
 
-const ReadMoreContainer = styled.div(
-  props => `
-  
-    
-    ${props.mobile && "@media screen and (min-width:800px) {display:none;}"}
-    ${!props.mobile && "@media screen and (max-width:800px) {display:none;}"}
-    @media screen and (max-width:800px) {display:none;}
-    margin-top: 10px;
-   
-    
-    p {
-    color: #3399FF;
-    font-size: 1em;
-    font-weight: 700;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.2s ease;
-    margin: 5px 0px;
-
-    
-    &:hover {
-      display: inline-block;
-      transform: translateX(-3px);
-      transition: all 0.2s ease;
-    }
-    }
-`
-)
-
 const SkillLegendContainer = styled.div(
   props => `
   display: flex;
@@ -333,14 +304,6 @@ const ScrollRightMobile = styled.div(
 `
 )
 
-const ReadMore = props => (
-  <ReadMoreContainer mobile={props.mobile}>
-    <p>
-      Read more <ArrowRight color="#3399FF" />
-    </p>
-  </ReadMoreContainer>
-)
-
 const CompanyCard = props => (
   <a
     className="cardBackground"
@@ -356,7 +319,6 @@ const CompanyCard = props => (
       <Img fixed={props.logo.childImageSharp.fixed} alt={props.link} />
       <h1>{props.role} </h1>
       <h3>{props.dates} </h3>
-      {/*<ReadMore mobile={false} />*/}
     </LogoAndText>
     <VerticalSeperator />
     <InfoText>
@@ -372,7 +334,6 @@ const CompanyCard = props => (
         </li>
       </ul>
     </InfoText>
-    {/*<ReadMore mobile={true} />*/}
   </a>
 )
 
