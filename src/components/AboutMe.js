@@ -201,87 +201,89 @@ export default function AboutMe(props) {
           <h4>What I'm like as a person</h4>
         </SectionText>
       </Fade>
-      <SectionRow>
-        <ImagesContainer>
-          <Picture
-            image={data.martinSpotify}
-            marginTop="0px"
-            marginLeft="-50px"
-            rotation="-20"
-            text="Entrepreneurship competition "
-          />
-          <Picture
-            image={data.diving}
-            marginTop="0px"
-            marginLeft="200px"
-            rotation="10"
-            text="Barrier Reef Diving"
-          />
-          <Picture
-            image={data.lofoten}
-            marginTop="250px"
-            marginLeft="-80px"
-            rotation="-3"
-            text="Reinebriggen, Norway"
-          />
-          <Picture
-            image={data.itpanel}
-            marginTop="280px"
-            marginLeft="250px"
-            rotation="10"
-            text="Universum Awards 2020"
-          />
-          <Picture
-            image={data.uber}
-            marginTop="440px"
-            marginLeft="-50px"
-            rotation="-5"
-            text="Leadership program @Uber "
-          />
+      <Fade up>
+        <SectionRow>
+          <ImagesContainer>
+            <Picture
+              image={data.martinSpotify}
+              marginTop="0px"
+              marginLeft="-50px"
+              rotation="-20"
+              text="Entrepreneurship competition "
+            />
+            <Picture
+              image={data.diving}
+              marginTop="0px"
+              marginLeft="200px"
+              rotation="10"
+              text="Barrier Reef Diving"
+            />
+            <Picture
+              image={data.lofoten}
+              marginTop="250px"
+              marginLeft="-80px"
+              rotation="-3"
+              text="Reinebriggen, Norway"
+            />
+            <Picture
+              image={data.itpanel}
+              marginTop="280px"
+              marginLeft="250px"
+              rotation="10"
+              text="Universum Awards 2020"
+            />
+            <Picture
+              image={data.uber}
+              marginTop="440px"
+              marginLeft="-50px"
+              rotation="-5"
+              text="Leadership program @Uber "
+            />
 
-          <h3>
-            Psst. Hover me!
-            <ArrowUp />
-          </h3>
-        </ImagesContainer>
-        <Text>
-          <Paragraph>
-            <h2>Started early </h2>
-            <p>
-              At age 16 I competed with some friends in a national
-              entreprenourship competition and won silver. This lead me to start
-              my own consulting company to make websites for small companies
-              which started as rough and simple Wordpress-sites. But today 5
-              years later I make sophisticated web applications and other
-              software in mostly Javascript for tech-start ups.
-            </p>
-          </Paragraph>
-          <Paragraph>
-            <h2>Curious on (almost) too much</h2>
-            <p>
-              I love to learn and explore new things and concepts constantly.
-              This has created a large spread in what I know and can do. For
-              example, as a kid I used to draw constantly meaning I still love
-              to design, animate and sketch. On the other end of the spectrum, I
-              also love more binary subjects such as Programming and Machine
-              Learning because of what it allows me to do. It is why I enjoy
-              fulfilling ideas and concepts in every step of the way, which my
-              varied skillset allows me to do very well.
-            </p>
-          </Paragraph>
-          <Paragraph>
-            <h2>Building and creating things is what I love</h2>
-            <p>
-              My varied skillset allows me to do what I love the most, taking a
-              product from an idea to finished product and being part of it
-              every step of the way. Its the biggest reason why I've worked
-              with, and love, entrepreneurship so much. It puts bigger demands
-              on me as to what I should be able to do and has required me to be
-              more involved in many different departments.
-            </p>
-          </Paragraph>
-        </Text>
-      </SectionRow>
+            <h3>
+              Psst. Hover me!
+              <ArrowUp />
+            </h3>
+          </ImagesContainer>
+          <Text>
+            <Paragraph>
+              <h2>Started early </h2>
+              <p>
+                At age 16 I competed with some friends in a national
+                entreprenourship competition and won silver. This lead me to
+                start my own consulting company to make websites for small
+                companies which started as rough and simple Wordpress-sites. But
+                today 5 years later I make sophisticated web applications and
+                other software in mostly Javascript for tech-start ups.
+              </p>
+            </Paragraph>
+            <Paragraph>
+              <h2>Curious on (almost) too much</h2>
+              <p>
+                I love to learn and explore new things and concepts constantly.
+                This has created a large spread in what I know and can do. For
+                example, as a kid I used to draw constantly meaning I still love
+                to design, animate and sketch. On the other end of the spectrum,
+                I also love more binary subjects such as Programming and Machine
+                Learning because of what it allows me to do. It is why I enjoy
+                fulfilling ideas and concepts in every step of the way, which my
+                varied skillset allows me to do very well.
+              </p>
+            </Paragraph>
+            <Paragraph>
+              <h2>Building and creating things is what I love</h2>
+              <p>
+                My varied skillset allows me to do what I love the most, taking
+                a product from an idea to finished product and being part of it
+                every step of the way. Its the biggest reason why I've worked
+                with, and love, entrepreneurship so much. It puts bigger demands
+                on me as to what I should be able to do and has required me to
+                be more involved in many different departments.
+              </p>
+            </Paragraph>
+          </Text>
+        </SectionRow>
+      </Fade>
     </Container>
   )
 }
