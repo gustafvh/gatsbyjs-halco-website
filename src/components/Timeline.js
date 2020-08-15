@@ -494,11 +494,6 @@ const SkillLegend = props => (
   </SkillLegendContainer>
 )
 
-const continuousScroll = () => {
-  console.log(document.querySelector("#companiesContainer").scrollTop)
-  document.querySelector("#companiesContainer").scrollTop = 0
-}
-
 export default function Timeline(props) {
   const data = useStaticQuery(graphql`
     query {

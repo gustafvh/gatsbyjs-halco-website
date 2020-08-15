@@ -3,16 +3,12 @@ import styled from "@emotion/styled"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import Fade from "react-reveal/Fade"
-import { VennDiagram } from "./utils/svgs"
+import { Ellips, VennDiagram } from "./utils/svgs"
 
 const Container = styled.div(
   props => `
   display: flex;
   flex-direction: column;
-  
-
-
- 
 `
 )
 
@@ -43,48 +39,95 @@ margin: 0px;
 
 const Image = styled.div(
   props => `
-  max-width: 340px;
-  max-height: 200px;
-  margin: 40px 0px;
+  display: flex;
+  flex-direction: column;
+  flex-basis: content;
+  position: absolute;
+  margin-top: ${props.marginTop};
+  margin-left: ${props.marginLeft};
+  transform: rotate(${props.rotation}deg);
+  padding: 15px;
+  padding-bottom: 0px;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  background: white;
+  transition: all 0.4s ease;
+  text-align: center;
+  
+  p {
+  margin: 20px;
+  font-family: 'Gloria Hallelujah';
+  font-size: 1.2em;
+  
+  }
+  
+  &:hover {
+    transform: rotate(0deg);
+    transition: all 0.4s ease;
+    z-index: 10000;
+    transform: scale(1.2,1.2)
 
-overflow: hidden;
-border-radius: 15px;
+  }
 
   `
 )
 
-const ImageAndText = styled.div(
+const SectionRow = styled.div(
   props => `
-  max-width: 360px;
-  margin: 20px;
-  letter-spacing: 0;
-  line-height: 1.4em;
+display: flex;
+flex-direction: row;
+justify-content: center;
   `
 )
 
 const Text = styled.div(
   props => `
-  margin: 20px;
   display: flex;
-  justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
+  flex-basis: 600px;
+  margin: 20px;
   
   
-
   
   `
 )
 
-const VennContainer = styled.div(
+const Paragraph = styled.div(
   props => `
-  display: flex;
-  justify-content: center;
-  margin: 20px;
-  align-items: center;
-
+  margin: 10px 0px;
+  
+  p {
+  font-size: 1em;
+  }
+  
+  h2 {
+  margin: 5px 0px;
+  }
   
   `
+)
+
+const ShapeAndImages = styled.div(
+  props => `
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 300px;
+  flex-basis: 600px;
+  
+  `
+)
+
+const Picture = props => (
+  <Image
+    marginTop={props.marginTop}
+    marginLeft={props.marginLeft}
+    rotation={props.rotation}
+  >
+    <Img fixed={props.image.childImageSharp.fixed} alt={props.text} />
+    <p>{props.text}</p>
+  </Image>
 )
 
 export default function AboutMe(props) {
@@ -115,6 +158,22 @@ export default function AboutMe(props) {
           }
         }
       }
+      itpanel: file(
+        relativePath: { eq: "images/images-about-me/it-panel.jpg" }
+      ) {
+        childImageSharp {
+          fixed(width: 340, quality: 95) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
+      uber: file(relativePath: { eq: "images/images-about-me/uber.jpg" }) {
+        childImageSharp {
+          fixed(width: 340, quality: 95) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
     }
   `)
 
@@ -122,64 +181,87 @@ export default function AboutMe(props) {
     <Container>
       <Fade up>
         <SectionText>
-          <h2 id="aboutme">A little About Me</h2>
-          <h4>Click the cards to read more</h4>
+          <h2 id="aboutme">Three Things About Me</h2>
+          <h4>What I'm like as a person</h4>
         </SectionText>
-
+      </Fade>
+      <SectionRow>
+        <ShapeAndImages>
+          <Picture
+            image={data.martinSpotify}
+            marginTop="0px"
+            marginLeft="-100px"
+            rotation="-20"
+            text="Entrepreneurship competition "
+          />
+          <Picture
+            image={data.diving}
+            marginTop="0px"
+            marginLeft="200px"
+            rotation="10"
+            text="Barrier Reef Diving"
+          />
+          <Picture
+            image={data.lofoten}
+            marginTop="400px"
+            marginLeft="0px"
+            rotation="-5"
+            text="Reinebriggen, Norway"
+          />
+          <Picture
+            image={data.itpanel}
+            marginTop="600px"
+            marginLeft="200px"
+            rotation="10"
+            text="Universum Awards 2020"
+          />
+          <Picture
+            image={data.uber}
+            marginTop="750px"
+            marginLeft="-50px"
+            rotation="-5"
+            text="Leadership program @Uber "
+          />
+          {/*<h3>Psst. Hover me!</h3>*/}
+        </ShapeAndImages>
         <Text>
-          <ImageAndText>
-            <Image>
-              <Img
-                fixed={data.martinSpotify.childImageSharp.fixed}
-                alt="gustaf"
-              />
-            </Image>
+          <Paragraph>
             <h2>Started early </h2>
             <p>
               At age 16 I competed with some friends in a national
-              entreprenourship competition and won silver. <br /> <br /> This
-              lead me to start my own consulting company to make websites for
-              small companies which started as rough and simple Wordpress-sites.
-              But today 5 years later I make sophisticated web applications and
-              other software in mostly Javascript for tech-start ups.
+              entreprenourship competition and won silver. This lead me to start
+              my own consulting company to make websites for small companies
+              which started as rough and simple Wordpress-sites. But today 5
+              years later I make sophisticated web applications and other
+              software in mostly Javascript for tech-start ups.
             </p>
-          </ImageAndText>
-          <ImageAndText>
-            <Image>
-              <Img fixed={data.lofoten.childImageSharp.fixed} alt="gustaf" />
-            </Image>
+          </Paragraph>
+          <Paragraph>
             <h2>Curious on (almost) too much</h2>
             <p>
               I love to learn and explore new things and concepts constantly.
-              This has created a large spread in what I know and can do. <br />
-              <br /> For example, as a kid I used to draw constantly meaning I
-              still love to design, animate and sketch. On the other end of the
-              spectrum, I also love more binary subjects such as Programming and
-              Machine Learning because of what it allows me to do. It is why I
-              enjoy fulfilling ideas and concepts in every step of the way,
-              which my varied skillset allows me to do very well.
+              This has created a large spread in what I know and can do. For
+              example, as a kid I used to draw constantly meaning I still love
+              to design, animate and sketch. On the other end of the spectrum, I
+              also love more binary subjects such as Programming and Machine
+              Learning because of what it allows me to do. It is why I enjoy
+              fulfilling ideas and concepts in every step of the way, which my
+              varied skillset allows me to do very well.
             </p>
-          </ImageAndText>
-
-          <ImageAndText>
-            <Image>
-              <Img fixed={data.diving.childImageSharp.fixed} alt="gustaf" />
-            </Image>
-            <h2>I like a challenge</h2>
+          </Paragraph>
+          <Paragraph>
+            <h2>Building and creating things is what I love</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-              congue tincidunt turpis quis porttitor. Nunc ultricies neque dui,
-              sit amet convallis eros maximus id.Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit. Nulla congue tincidunt turpis quis
-              porttitor. Nunc ultricies neque dui, sit amet convallis eros
-              maximus id.
+              My varied skillset allows me to do what I love the most, taking a
+              product from an idea to finished product and being part of it
+              every step of the way. Its the biggest reason why I've worked
+              with, and love, entrepreneurship so much. It puts bigger demands
+              on me as to what I should be able to do and has required me to be
+              more involved in many different departments.
             </p>
-          </ImageAndText>
+          </Paragraph>
         </Text>
-        {/*<VennContainer>*/}
-        {/*  <VennDiagram />*/}
-        {/*</VennContainer>*/}
-      </Fade>
+      </SectionRow>
     </Container>
   )
 }
