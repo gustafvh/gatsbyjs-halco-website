@@ -198,7 +198,7 @@ export default function AboutMe(props) {
       <Fade up>
         <SectionText>
           <h2 id="aboutme">Three Things About Me</h2>
-          <h4>What I'm like as a person</h4>
+          <h4>How I'm like as a person</h4>
         </SectionText>
       </Fade>
       <Fade up>

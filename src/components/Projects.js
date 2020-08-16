@@ -13,9 +13,6 @@ const Container = styled.div(
   justify-content: center;
   align-items: center;
   margin: 10px;
-  
-  
-  
   a {
     color: unset;
     text-decoration: unset;
