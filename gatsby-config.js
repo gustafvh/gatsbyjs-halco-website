@@ -6,6 +6,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-smoothscroll`,
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-netlify-cache`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -50,6 +51,25 @@ module.exports = {
         display: "standalone",
         icon: "static/favicon.ico",
         crossOrigin: `use-credentials`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-hotjar`,
+      options: {
+        id: 940174,
+        sv: 6,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-106114786-1",
+        head: false,
+        anonymize: true,
+        respectDNT: true,
+        exclude: ["/preview/**", "/do-not-track/me/too/"],
+        pageTransitionDelay: 0,
+        defer: false,
       },
     },
   ],
