@@ -73,6 +73,7 @@ padding: 40px;
 margin: 40px;
 margin-top: 20px;
 min-width: 500px;
+min-height: 190px;
 
 transition: all 0.4s ease;
 cursor: pointer;

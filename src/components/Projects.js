@@ -68,7 +68,7 @@ const Container = styled.div(
 
 const Image = styled.div(
   props => `
-    max-width: 340px;
+    max-width: 300px;
 max-height: 300px;
 
 overflow: hidden;
