@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import styled from "@emotion/styled"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
@@ -540,7 +540,7 @@ export default function Timeline(props) {
                 pointOne="Developed sign interpretation application to assist people with hearing disabilities."
                 pointTwo="Built application with separated front- and backend in React, Tensorflow and Python."
                 link="https://prevas.se"
-                skillsToHighlight={[2, 3, 4, 5, 6, 8]}
+                skillsToHighlight={[2, 3, 5, 7, 9]}
                 skillsSelected={skillsSelected}
                 setSkillsSelected={setSkillsSelected}
               />

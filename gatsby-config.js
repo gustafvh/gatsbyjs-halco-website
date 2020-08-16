@@ -1,17 +1,11 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
-
 module.exports = {
-  /* Your site config here */
   plugins: [
     `gatsby-plugin-emotion`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-smoothscroll`,
+    `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -41,8 +35,21 @@ module.exports = {
       options: {
         height: 5,
         prependToBody: false,
-        color: `#3399FF`,
+        color: `#3E3E3E`,
         footerHeight: 300,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "Halco Website",
+        short_name: "Halco",
+        start_url: "/",
+        background_color: "#3399FF",
+        theme_color: "#3399FF",
+        display: "standalone",
+        icon: "src/images/logo.png",
+        crossOrigin: `use-credentials`,
       },
     },
   ],
