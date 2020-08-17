@@ -50,7 +50,7 @@ export default function Footer(props) {
   return (
     <Container>
       <Column>
-        <h4>© Halco Consulting 2020</h4>
+        <h4>© Halco Consulting AB 2020</h4>
         <p>ORG.NR: 559114-7144 </p>
         <p>Lotsgatan 1, 185 32, Vaxholm</p>
       </Column>

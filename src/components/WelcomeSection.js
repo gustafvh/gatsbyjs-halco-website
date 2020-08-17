@@ -119,7 +119,7 @@ export default function WelcomeSection() {
           </h2>
           <p>
             I'm best described by my curiosity for new areas and technologies
-            which has lead me to explore and learn more about everything from
+            which have lead me to explore and learn more about everything from
             Machine Learning to Animations with mainly technology start-ups as
             clients.
           </p>

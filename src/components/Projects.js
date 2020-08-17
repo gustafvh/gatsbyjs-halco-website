@@ -275,7 +275,7 @@ export default function Menu(props) {
             image={data.sign}
             projectType="PUBLICATION + APP"
             name="Neural Network Interpreter"
-            text="Predicting Swedish Sign Language Signs using ML, CNN and
+            text="Predicting Swedish Sign Language Signs using ML, CNN, and
                          Transfer Learning."
             toolsUsed="Python • Tensorflow • Docker"
             link="https://github.com/gustafvh/SignInterpreterSSL"
@@ -292,7 +292,7 @@ export default function Menu(props) {
             image={data.footprint}
             projectType="CONCEPT"
             name="Environment Gamification"
-            text="Gamification of environmental thinking in iOS app with challenges and rewards."
+            text="Gamification of environmental thinking in an iOS app with challenges and rewards."
             toolsUsed="Sketch • Photoshop • Invision"
             link="https://dribbble.com/shots/5754630-Footprint-Environmental-gamification-app"
           />
@@ -316,7 +316,7 @@ export default function Menu(props) {
             image={data.flappy}
             projectType="8-bit Game"
             name="Flappy Taco Retro Game"
-            text="A 2D Flappy Bird game written in C and Assembler directly on a PIC32-processor."
+            text="A 2D Flappy Bird game that was written in C and Assembler directly on a PIC32-processor."
             toolsUsed="C • Assembler • I/O"
             link="https://github.com/gustafvh/Flappy-Taco-Pic32"
           />
