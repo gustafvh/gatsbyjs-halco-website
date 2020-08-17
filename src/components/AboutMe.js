@@ -198,7 +198,7 @@ export default function AboutMe(props) {
       <Fade up>
         <SectionText>
           <h2 id="aboutme">Three Things About Me</h2>
-          <h4>How I'm like as a person</h4>
+          <h4>What I'm like as a person</h4>
         </SectionText>
       </Fade>
       <Fade up>
@@ -250,11 +250,11 @@ export default function AboutMe(props) {
               <h2>Started early </h2>
               <p>
                 At age 16 I competed with some friends in a national
-                entrepreneurship competition and won silver. This made me start
-                my own consulting company to make websites for small companies
-                that started as simple and cost-effective websites. But today 5
-                years later I make sophisticated web applications and other
-                software for tech-startups.
+                entrepreneurship competition and got 2nd place. This made me
+                start my own consulting company to make websites for small
+                companies that started as simple and cost-effective websites.
+                But today 5 years later I make sophisticated web applications
+                and other software for tech-startups.
               </p>
             </Paragraph>
             <Paragraph>
@@ -266,15 +266,16 @@ export default function AboutMe(props) {
                 love to design, animate, and sketch. On the other end of the
                 spectrum, I also love more binary subjects such as Programming
                 and Machine Learning because of what it allows me to do. It is
-                why I enjoy fulfilling ideas and concepts in every step of the
-                way, which my varied skill set allows me to do very well.
+                why I enjoy being a part of ideas and concepts in all it's
+                different phases which my varied skill set allows me to do very
+                well.
               </p>
             </Paragraph>
             <Paragraph>
               <h2>Building and creating things is what I love</h2>
               <p>
                 My varied skill set allows me to do what I love the most, taking
-                a product from an idea to finished product and being part of it
+                a project from an idea to finished product and being part of it
                 every step of the way. It's the biggest reason why I've worked
                 with, and love, entrepreneurship so much. It puts bigger demands
                 on me as to what I should be able to do and has required me to
