@@ -69,7 +69,7 @@ export default function Footer(props) {
       </Column>
       <Column>
         <h4>Resources</h4>
-        <a href="https://drive.google.com/file/d/1JyypU1Ru6TEeA1OeQJOrkLeReqyF2fb-/view?usp=sharing">
+        <a href="https://drive.google.com/file/d/1HtX9T1uHML4WzPdpXMWVb1wMw7KfKQum/view?usp=sharing">
           View my CV
         </a>
         <a href="https://www.kth.se/en/studies/master/computer-science">
