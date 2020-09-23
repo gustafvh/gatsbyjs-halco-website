@@ -563,9 +563,9 @@ export default function Timeline(props) {
                 dates="MAR 2018 - DEC 2019"
                 logo={data.asthmatuner}
                 headline="Medtech company that develops self-management systems and home diagnostics for respiratory diseases"
-                pointOne="Develop a doctor-patient interaction platform in Angular."
+                pointOne="Developed a doctor-patient interaction platform in Angular."
                 pointTwo="Built two HTML/CSS/WP websites."
-                link="https://asthmatuner.se"
+                link="https://asthmatuner.se/?lang=en"
                 skillsToHighlight={[2, 5, 6, 7, 8, 10, 11]}
                 skillsSelected={skillsSelected}
                 setSkillsSelected={setSkillsSelected}
