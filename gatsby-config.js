@@ -14,21 +14,14 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          {
-            family: `IBM Plex Mono`,
-            variants: [`400`],
-          },
-          {
-            family: `Open Sans`,
-            variants: [`400`, `700`],
-          },
-          {
-            family: `Gloria Hallelujah`,
-          },
+          `IBM Plex Mono\:400`,
+          `Open Sans\:400,700`,
+          `Gloria Hallelujah`,
         ],
+        display: "swap",
       },
     },
     {
