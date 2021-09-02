@@ -355,7 +355,7 @@ const SoftSkills = props => (
       <SingleSkill
         skillId={1}
         skillsSelected={props.skillsSelected}
-        skill="Business Development"
+        skill="Product Management"
         color="#043E78"
       />
       <SingleSkill
@@ -368,19 +368,7 @@ const SoftSkills = props => (
         skillId={3}
         skillsSelected={props.skillsSelected}
         skill="Machine Learning"
-        color="#3399FF"
-      />
-      <SingleSkill
-        skillId={4}
-        skillsSelected={props.skillsSelected}
-        skill="Data Science"
-        color="#3399FF"
-      />
-      <SingleSkill
-        skillId={5}
-        skillsSelected={props.skillsSelected}
-        skill="Back End Development"
-        color="#3399FF"
+        color="#043E78"
       />
       <SingleSkill
         skillId={6}
@@ -394,6 +382,19 @@ const SoftSkills = props => (
         skill="React/Javascript"
         color="#043E78"
       />
+      <SingleSkill
+        skillId={4}
+        skillsSelected={props.skillsSelected}
+        skill="Data Science"
+        color="#3399FF"
+      />
+      <SingleSkill
+        skillId={5}
+        skillsSelected={props.skillsSelected}
+        skill="Back End Development"
+        color="#3399FF"
+      />
+
       <SingleSkill
         skillId={8}
         skillsSelected={props.skillsSelected}
@@ -494,6 +495,15 @@ export default function Timeline(props) {
           }
         }
       }
+      spotify: file(
+        relativePath: { eq: "images/company-logos/spotify-logo.png" }
+      ) {
+        childImageSharp {
+          fixed(height: 30) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
       hedvig: file(
         relativePath: { eq: "images/company-logos/hedvig-logo.png" }
       ) {
@@ -520,12 +530,25 @@ export default function Timeline(props) {
             <SoftSkills skillsSelected={skillsSelected} />
             <CompaniesContainer id="companiesContainer">
               <CompanyCard
-                role="Developer Intern"
-                dates="FEB 2020 - ONGOING"
+                role="Engineering Internship"
+                dates="JUN 2021 - AUG 2021"
+                logo={data.spotify}
+                headline="Selected as one of 65 interns out of over 56,000 applicants"
+                pointOne="Designed and implemented new global feature for the Android app."
+                pointTwo="Assisted with new ML-embeddings project for podcast recomendations."
+                link="https://spotify.com"
+                skillsToHighlight={[1, 2, 3, 4, 6, 8]}
+                skillsSelected={skillsSelected}
+                setSkillsSelected={setSkillsSelected}
+              />
+              <hr />
+              <CompanyCard
+                role="Developer Internship"
+                dates="FEB 2020 - MAR 2021"
                 logo={data.hedvig}
                 headline="Insurtech company named one of the 100 best startups in Europe by Wired"
-                pointOne="Develop and automate internal platform frontend in React."
-                pointTwo="Improve backend architecture and speed in Kotlin."
+                pointOne="Developed and automated internal platform frontend in React."
+                pointTwo="Improved backend architecture and workflow in Kotlin."
                 link="https://hedvig.com"
                 skillsToHighlight={[2, 5, 7, 8]}
                 skillsSelected={skillsSelected}

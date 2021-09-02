@@ -96,9 +96,9 @@ const SocialMediaicons = styled.div`
 export default function WelcomeSection() {
   const data = useStaticQuery(graphql`
     query {
-      gustaf: file(relativePath: { eq: "images/gustaf-green.png" }) {
+      gustaf: file(relativePath: { eq: "images/gustaf-animated.png" }) {
         childImageSharp {
-          fixed(width: 335, quality: 95) {
+          fixed(width: 370, quality: 95) {
             ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
@@ -112,7 +112,7 @@ export default function WelcomeSection() {
         <IntroText>
           <h1>I'm Gustaf Halvardsson.</h1>
           <h2>
-            Computer Science Student{" "}
+            Computer Science & AI Student{" "}
             <a target="_blank" rel="noopener noreferrer" href="https://kth.se">
               @KTH.
             </a>
